@@ -35,7 +35,9 @@ export default function NewUser(props) {
                 </div>
                 <div className={styles.createAccountContainer}>
                     <div>
-                        <a href="#">Return to login</a>
+                        <a href="#" onClick={props.login}>
+                            Return to login
+                        </a>
                     </div>
                 </div>
             </div>

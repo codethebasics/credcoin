@@ -36,7 +36,9 @@ export default function Login(props) {
                         <span>Doesn't have an account?</span>
                     </div>
                     <div>
-                        <a href="#">Sign up here</a>
+                        <a href="#" onClick={props.signUp}>
+                            Sign up here
+                        </a>
                     </div>
                 </div>
             </div>

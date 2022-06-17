@@ -1,9 +1,9 @@
-import NewUser from '../components/layout/user/newUser';
+import LoginSignupPanel from '../components/layout/login/LoginSignupPanel';
 
 export default function Index(props) {
     return (
         <>
-            <NewUser />
+            <LoginSignupPanel />
         </>
     );
 }
