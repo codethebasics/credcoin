@@ -1,9 +1,9 @@
-import LoginSignupPanel from '../components/layout/login/LoginSignupPanel';
+import Sidebar from '../components/layout/menu/Sidebar';
 
 export default function Index(props) {
     return (
         <>
-            <LoginSignupPanel />
+            <Sidebar />
         </>
     );
 }
