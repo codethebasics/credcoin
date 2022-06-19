@@ -1,0 +1,92 @@
+#dashboardContainer {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: 
+        "header"
+        "balance"
+        "main";
+    height: 100vh;
+    background: #f6f6f6;
+    margin: 0 auto;
+    max-width: 1000px;
+
+    .header {
+        grid-area: header;
+        padding: 15px;
+    }
+
+    .balance {
+        grid-area: balance;        
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            align-self: stretch;
+        }
+    }
+
+    .main {
+        grid-area: main;
+        display: flex;
+
+        .left {
+            width: 65%;
+            padding: 15px;
+        }
+
+        .right {
+            width: 35%;
+            display: flex;
+            flex-direction: column;   
+            padding: 15px;
+        }
+    }
+}
+
+.card {
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;    
+    background: #FFFFFF;
+    box-shadow: 0px 4px 50px rgba(231, 231, 231, 0.25);
+}
+
+.cardActive {
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #085573 -2.44%, #09365D 100%);
+    color: #fff;
+}
+
+.cardBalance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        padding: 0 5px;
+    }
+
+    div:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-left: 25px;
+    }
+
+    .info {
+        div:first-child {
+            font-size: 0.8rem;
+        }
+        div:last-child {
+            font-size: 1.5rem;
+        }
+    }
+}

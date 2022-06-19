@@ -1,0 +1,39 @@
+.balanceCardContainer {
+    display: flex;
+    background: #fff;
+    padding: 0 15px;
+    margin: 5px 15px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #eeeeee;;
+
+    .brand {        
+        display: flex;
+        align-items: center;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        padding: 15px;
+
+        div:first-child {
+            text-transform: uppercase;
+        }
+
+        div:last-child {
+            display: flex;
+            align-items: center;
+
+            span {
+                margin: 0 5px;
+            }
+
+            span:first-child {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
