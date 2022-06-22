@@ -2,20 +2,16 @@ import styles from '../../../styles/components/BalanceCard.module.scss';
 
 export default function BalanceCard(props) {
     return (
-        <div className={styles.balanceCardContainer}>
-            <div className={styles.brand}>
-                <img
-                    src={props.imgPath}
-                    alt={props.alt}
-                    height={props.height || 50}
-                />
+        <div className={styles.balanceCard}>
+            <div className={styles.label}>
+                <span>Saldo</span>
             </div>
-            <div className={styles.body}>
-                <div className={styles.title}>{props.title}</div>
-                <div>
-                    <span className={styles.balance}>{props.balance}</span>
-                    <span className={styles.symbol}>{props.symbol}</span>
-                    <span className={styles.info}>i</span>
+            <div className={styles.data}>
+                <div className={styles.dataClosed}>
+                    <span></span>
+                </div>
+                <div className={styles.toggleClosed}>
+                    <img src="/img/closed-eye.svg" />
                 </div>
             </div>
         </div>

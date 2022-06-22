@@ -1,76 +1,30 @@
-#sidebarContainer {
+#sidebar {    
+    background: #D6A84C;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 100vh;
-    padding: 15px;
-    -webkit-box-shadow: 6px 0px 9px -1px #fafafa; 
-    box-shadow: 6px 0px 9px -1px #fafafa;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-    .sidebarBrand {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-    }
-
-    .sidebarHeader {
-        margin: 15px 0;
-        text-align: center;
-
-        .hello {
-            color: #0E1532;
-
-            span {
-                font-weight: bold;
-            }
-        }
-
-        .userData {
-            font-size: 0.8rem;
-            color: #bababa;
-            margin: 5px 0;
-        }
-    }
+    align-items: stretch;
+    height: 100%;
     
-    .sidebarLinks {
-        margin: 15px 0;
+    > div {
+        color: #fff;
+        font-family: gothamBook, Verdana, Geneva, Tahoma, sans-serif;
+        background: #04042D;        
+        height: 100%;
+        border-radius: 0 40px 0 40px;
 
-        ul {
-            list-style-type: none;
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 35px;
 
-            li {
-                padding: 10px 15px;
-                border-radius: 15px;
+            .logo {
+
+            }
+
+            .menu {
                 cursor: pointer;
-                color: #bababa;
-                
-                &:hover {
-                    background: #e7eef8;
-                    color: #7289b3;
-                }
             }
         }
     }
-    
-    .sidebarFooter {
-        margin: 15px 0;
-        font-size: 0.8rem;
-
-        div:first-child {
-            font-weight: bold;
-        }
-
-        div:last-child {
-            margin-top: 15px;
-            color: #bababa;
-        }
-
-        .copyright {
-            font-size: 0.7rem;
-            color: #bababa;
-            margin: 5px 0;
-        }
-    }
-    
 }
