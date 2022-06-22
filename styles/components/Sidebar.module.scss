@@ -18,12 +18,63 @@
             align-items: center;
             padding: 25px 35px;
 
-            .logo {
-
-            }
-
             .menu {
                 cursor: pointer;
+            }
+        }
+
+        .userData {
+            padding: 25px 35px;
+
+            > div {                
+                border-left: 2px solid #D6A84C;
+                padding: 0 10px;
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    display: block;
+
+                    &:first-child {
+                        font-family: gothamBook, Verdana, Geneva, Tahoma, sans-serif;
+                    }
+                    
+                    &:last-child {
+                        font-family: gotham, Verdana, Geneva, Tahoma, sans-serif;
+                        color: #D6A84C;
+                    }
+                }
+
+                .info {
+                    font-size: 0.9rem;
+                    margin-top:10px;
+                    opacity: .5;
+                }
+            }
+        }
+
+        .link {
+            padding: 25px 35px;
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    padding: 10px 5px;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    border-bottom: 1px solid #0f0f3f;
+
+                    >span {
+                        margin-left: 15px;
+                    }
+
+                    &:hover {
+                        opacity: .5;
+                    }
+
+                }
             }
         }
     }
