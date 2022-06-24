@@ -54,26 +54,51 @@
         }
 
         .link {
-            padding: 25px 35px;
-
+            
             ul {
                 list-style-type: none;
-
+                padding: 25px 0 25px 35px;
+                
                 li {
-                    padding: 10px 5px;
+                    padding: 10px 15px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
                     border-bottom: 1px solid #0f0f3f;
 
-                    >span {
+                    >a {
                         margin-left: 15px;
+                        color: #fff;
+                        opacity: .5;
+
+                        &:hover {
+                            opacity: 1;
+                        }
                     }
 
                     &:hover {
-                        opacity: .5;
+                        background: #D6A84C;
+                        color: #04042D;
+                        border-radius: 40px 0 0 40px;
                     }
+                }
 
+                .submenu {
+                    margin: 15px;
+                    background: #19194B;
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, .5);
+                    border-radius: 10px;
+                    
+                    div {
+                        padding: 10px 15px;
+                        
+                        &:hover {
+                            background: #04042D;
+                            cursor: pointer;
+                            color: rgba(255, 255, 255, 1);
+                        }
+                    }
                 }
             }
         }

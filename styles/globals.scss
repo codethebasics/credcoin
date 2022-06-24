@@ -4,11 +4,14 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 #mainContainer {
     height: 100vh;
     min-width: 100vw;
-    background: purple;
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;

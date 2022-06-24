@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from '../../../styles/components/Sidebar.module.scss';
 
 export default function Sidebar(props) {
@@ -27,15 +28,26 @@ export default function Sidebar(props) {
                     <ul>
                         <li>
                             <img src="/img/home-gold.svg" height={20} />
-                            <span>Home</span>
+                            <Link href="/home">
+                                <a>Home</a>
+                            </Link>
                         </li>
+                        {/* <div className={styles.submenu}>
+                            <div>Cashx</div>
+                            <div>Compra Programada</div>
+                            <div>Exchange</div>
+                        </div> */}
                         <li>
                             <img src="/img/wallet-gold.svg" height={20} />
-                            <span>Saldo</span>
+                            <Link href="/extrato">
+                                <a>Saldo</a>
+                            </Link>
                         </li>
                         <li>
                             <img src="/img/signout-gold.svg" height={20} />
-                            <span>Sair</span>
+                            <Link href="/">
+                                <a>Sair</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

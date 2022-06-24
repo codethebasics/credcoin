@@ -1,0 +1,54 @@
+.home {    
+    padding: 15px;
+
+    .banner {
+        padding: 15px;
+        font-size: 1.7rem;
+        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .balanceContainer {        
+        display: flex;
+
+        .balanceCard {
+            width: 100%;
+            margin: 15px;
+        }
+    }
+
+    .formContainer {
+        .formCard {
+            margin: 15px;
+
+            .header {
+                padding: 5px 50px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                div:first-child {
+
+                }
+
+                div:last-child {                
+                    
+                    text-transform: uppercase;
+                }
+            }
+
+            .cardContainer {
+                display: flex;
+            }
+
+            .quantity {
+                width: 100%;
+                padding: 15px;
+            }
+            
+            .payment {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    }
+}
