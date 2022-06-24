@@ -1,12 +1,9 @@
 import styles from '../../styles/pages/Dashboard.module.scss';
-import BalanceCard from '../../components/layout/card/BalanceCard';
 
 export default function Dashboard(props) {
     return (
         <div id={styles.dashboardContainer}>
-            <div className={styles.balanceContainer}>
-                <BalanceCard />
-            </div>
+            <div className={styles.balanceContainer}></div>
             <div className={styles.productContainer}>
                 <div className={styles.productCard}>
                     <div className={styles.label}>

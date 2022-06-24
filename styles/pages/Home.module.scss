@@ -9,10 +9,48 @@
 
     .balanceContainer {        
         display: flex;
+        
+        >div:nth-child(2) {
+            margin: 0 50px;
+        }
 
-        .balanceCard {
-            width: 100%;
-            margin: 15px;
+        .cardBalance {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .icon {                
+                padding: 0 15px;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+
+                .header {
+                    display: flex;
+                    text-transform: uppercase;
+                    padding: 0 15px;
+                    align-self: flex-end;
+                    font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+                }
+
+                .body {            
+                    display: flex;
+                    align-items: center;
+                    padding: 15px;
+
+                    .value {
+                        font-size: 2rem;
+                        padding: 0 15px;
+                    }
+
+                    .symbol {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
         }
     }
 
