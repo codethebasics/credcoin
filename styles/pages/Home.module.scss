@@ -13,80 +13,116 @@
         >div:nth-child(2) {
             margin: 0 50px;
         }
-
-        .cardBalance {
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .icon {                
-                padding: 0 15px;
-            }
-
-            .info {
-                display: flex;
-                flex-direction: column;
-
-                .header {
-                    display: flex;
-                    text-transform: uppercase;
-                    padding: 0 15px;
-                    align-self: flex-end;
-                    font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
-                }
-
-                .body {            
-                    display: flex;
-                    align-items: center;
-                    padding: 15px;
-
-                    .value {
-                        font-size: 2rem;
-                        padding: 0 15px;
-                    }
-
-                    .symbol {
-                        font-size: 0.9rem;
-                    }
-                }
-            }
-        }
     }
 
     .formContainer {
-        .formCard {
-            margin: 15px;
+        margin: 50px 0;
+        display: flex;
+
+        .leftContainer {
+            display: flex;
+            flex-direction: column;
 
             .header {
-                padding: 5px 50px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                padding: 15px;
 
-                div:first-child {
-
-                }
-
-                div:last-child {                
-                    
+                .label {
+                    font-size: 1.05rem;
                     text-transform: uppercase;
+                    color: #222;
                 }
             }
 
-            .cardContainer {
-                display: flex;
+            .table {
+                padding: 15px;    
+                
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    tbody {
+                        tr {
+                            &:hover {
+                                background: #ebebeb;
+                            }
+                        }
+                    }
+                }
+
+                tr {                 
+                    margin: 0;
+                    border-bottom: 1px solid #d4d4d4;
+                    
+
+                    th, td {
+                        text-align: center;
+                        padding: 5px;
+                    }
+
+                    th {
+                        color: rgb(63, 61, 61);
+                        border-right: 1px solid #d4d4d4;
+
+                        &:last-child {
+                            border-right: 0;
+                        }
+                    }
+    
+                    td {
+                        color: #797171;
+                    }                    
+                }
             }
 
-            .quantity {
-                width: 100%;
+            .cta {
                 padding: 15px;
+                display: flex;
+                justify-content: flex-end;
+                
+                button {
+                    padding: 15px;
+                    border: 0;
+                    outline: 0;
+                    background: #D6A84C;
+                    color: #FFFFFF;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    opacity: .9;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
             }
-            
-            .payment {
-                width: 100%;
-                padding: 15px;
+        }
+
+        .right {
+            padding: 0 15px;
+
+            >div:nth-child(1) {
+                margin-bottom: 25px;
             }
         }
     }
+}
+
+.successLabel,
+.warningLabel,
+.dangerLabel {
+    font-family: gotham, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.successLabel {
+    color: #1aa128;
+}
+
+.warningLabel {
+    color: #e9a71b;
+}
+
+.dangerLabel {
+    color: #f55656;
 }

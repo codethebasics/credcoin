@@ -34,6 +34,93 @@ export default function Home(props) {
                     balance={'R$ 0000'}
                 />
             </div>
+            <div className={styles.formContainer}>
+                <Card background={'#FFFFFF'} color={'#D6A84C'} padding={'15px'}>
+                    <div className={styles.leftContainer}>
+                        <div className={styles.header}>
+                            <div className={styles.img}>
+                                <img src="/img/gold-paper.svg"></img>
+                            </div>
+                            <div className={styles.label}>
+                                <span>Últimos lançamentos</span>
+                            </div>
+                        </div>
+                        <div className={styles.table}>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ATIVO</th>
+                                        <th>TIPO</th>
+                                        <th>QUANTIDADE</th>
+                                        <th>DATA</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>STK</td>
+                                        <td>DIVIDENDOS</td>
+                                        <td>50</td>
+                                        <td>22/06/2022</td>
+                                        <td>
+                                            <span
+                                                className={styles.warningLabel}
+                                            >
+                                                EM ANÁLISE
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>STK</td>
+                                        <td>SAQUE</td>
+                                        <td>50</td>
+                                        <td>22/06/2022</td>
+                                        <td>
+                                            <span
+                                                className={styles.dangerLabel}
+                                            >
+                                                CANCELADO
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>STK</td>
+                                        <td>COMPRA</td>
+                                        <td>50</td>
+                                        <td>22/06/2022</td>
+                                        <td>
+                                            <span
+                                                className={styles.successLabel}
+                                            >
+                                                CONCLUÍDA
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div className={styles.cta}>
+                            <button>VER TODAS AS TRANSAÇÕES</button>
+                        </div>
+                    </div>
+                </Card>
+                <div className={styles.right}>
+                    <Card
+                        background={'#FFFFFF'}
+                        color={'#D6A84C'}
+                        padding={'15px'}
+                    >
+                        fds
+                    </Card>
+                    <Card
+                        background={'#FFFFFF'}
+                        color={'#D6A84C'}
+                        padding={'15px'}
+                    >
+                        fds
+                    </Card>
+                </div>
+            </div>
         </div>
     );
 }
