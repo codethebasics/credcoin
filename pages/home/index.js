@@ -168,7 +168,28 @@ export default function Home(props) {
                         color={'#D6A84C'}
                         padding={'15px'}
                     >
-                        fds
+                        <div className={styles.infoStacks}>
+                            <div className={styles.label}>
+                                <span>Entenda como o token CRD funciona</span>
+                            </div>
+                            <div className={styles.cta}>
+                                <button>Baixar whitepaper CRD</button>
+                            </div>
+                        </div>
+                    </Card>
+                    <Card
+                        background={'#FFFFFF'}
+                        color={'#D6A84C'}
+                        padding={'15px'}
+                    >
+                        <div className={styles.sacarStacks}>
+                            <div className={styles.label}>
+                                <span>Resgatar CRD Tokens</span>
+                            </div>
+                            <div className={styles.cta}>
+                                <button>Baixar whitepaper CRD</button>
+                            </div>
+                        </div>
                     </Card>
                 </div>
             </div>

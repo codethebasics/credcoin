@@ -103,8 +103,12 @@
         .right {
             padding: 0 15px;
 
-            >div:nth-child(1) {
+            >div {
                 margin-bottom: 25px;
+            }
+
+            >div:last-child {
+                margin-bottom: 0;
             }
 
             .buyStacks {
@@ -177,6 +181,65 @@
                         color: #FFFFFF;
                         background: #428C36;
                         text-transform: uppercase;
+                        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .infoStacks {
+                display: flex;
+                flex-direction: column;
+                padding: 0 5px;
+
+
+                .label {
+                    color: #222;
+                    
+                    text-align: center;
+                    font-size: .9rem;
+                }
+
+                .cta {
+                    padding: 15px 0;
+                    button {
+                        width: 100%;
+                        padding: 15px;
+                        border-radius: 15px;
+                        border: 0;
+                        outline: none;
+                        color: #FFFFFF;
+                        background: #D6A84C;
+                        font-size: 1.2rem;
+                        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .sacarStacks {
+                display: flex;
+                flex-direction: column;
+                padding: 0 5px;
+
+                .label {
+                    color: #222;
+                    
+                    text-align: center;
+                    font-size: .9rem;
+                }
+
+                .cta {
+                    padding: 15px 0;
+                    button {
+                        width: 100%;
+                        padding: 15px;
+                        border-radius: 15px;
+                        border: 0;
+                        outline: none;
+                        color: #222;
+                        background: #DDD;
+                        font-size: 1.2rem;
                         font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
                         cursor: pointer;
                     }
