@@ -54,6 +54,7 @@ export default function Home(props) {
                                         <th>QUANTIDADE</th>
                                         <th>DATA</th>
                                         <th>STATUS</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -69,6 +70,12 @@ export default function Home(props) {
                                                 EM ANÁLISE
                                             </span>
                                         </td>
+                                        <td>
+                                            <img
+                                                height={20}
+                                                src="/img/search-gray.svg"
+                                            />
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>STK</td>
@@ -82,6 +89,12 @@ export default function Home(props) {
                                                 CANCELADO
                                             </span>
                                         </td>
+                                        <td>
+                                            <img
+                                                height={20}
+                                                src="/img/search-gray.svg"
+                                            />
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>STK</td>
@@ -94,6 +107,12 @@ export default function Home(props) {
                                             >
                                                 CONCLUÍDA
                                             </span>
+                                        </td>
+                                        <td>
+                                            <img
+                                                height={20}
+                                                src="/img/search-gray.svg"
+                                            />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -110,7 +129,39 @@ export default function Home(props) {
                         color={'#D6A84C'}
                         padding={'15px'}
                     >
-                        fds
+                        <div className={styles.buyStacks}>
+                            <div className={styles.header}>
+                                <div className={styles.img}>x</div>
+                                <div className={styles.headerLabel}>
+                                    Comprar Stacks
+                                </div>
+                            </div>
+                            <div className={styles.label}>
+                                <span>
+                                    Adicione a quantidade em reais que deseja
+                                    comprar.
+                                </span>
+                            </div>
+                            <div className={styles.quantityContainer}>
+                                <div className={styles.inputQuantity}>
+                                    <span>R$</span>
+                                    <input type="text" />
+                                </div>
+                                <div className={styles.outputQuantity}>
+                                    {' '}
+                                    = 100 STK
+                                </div>
+                            </div>
+                            <div className={styles.info}>
+                                <span>
+                                    Valor calculado com base no preço inicial
+                                    das stacks.
+                                </span>
+                            </div>
+                            <div className={styles.cta}>
+                                <button>Comprar Stacks</button>
+                            </div>
+                        </div>
                     </Card>
                     <Card
                         background={'#FFFFFF'}
