@@ -73,7 +73,7 @@
                     }
     
                     td {
-                        color: #797171;
+                        color: #797171;                        
                     }                    
                 }
             }
@@ -265,4 +265,8 @@
 
 .dangerLabel {
     color: #f55656;
+}
+
+.transactionInfo {
+    cursor: pointer;
 }

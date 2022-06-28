@@ -1,8 +1,12 @@
 import styles from '../../styles/pages/Home.module.scss';
 import { BalanceCard } from '../../components/layout/cards';
 import Card from '../../components/layout/cards/Card';
+import { useState } from 'react';
 
 export default function Home(props) {
+    const [previewInput, setPreviewInput] = useState(0);
+    const [previewValue, setPreviewValue] = useState(0);
+
     const listarTransacoes = async () => {
         alert('Ver todas as transações');
     };
@@ -17,6 +21,18 @@ export default function Home(props) {
 
     const resgatarTokens = async () => {
         alert('Resgatar Tokens');
+    };
+
+    const viewTransaction = async () => {
+        alert('View transaction');
+    };
+
+    const onPreviewInputChange = (event) => {
+        const value = event.target.value;
+        if (!isNaN(value)) {
+            setPreviewInput(value);
+            setPreviewValue(value * 10);
+        }
     };
 
     return (
@@ -90,6 +106,10 @@ export default function Home(props) {
                                         </td>
                                         <td>
                                             <img
+                                                className={
+                                                    styles.transactionInfo
+                                                }
+                                                onClick={viewTransaction}
                                                 height={20}
                                                 src="/img/search-gray.svg"
                                             />
@@ -109,6 +129,10 @@ export default function Home(props) {
                                         </td>
                                         <td>
                                             <img
+                                                className={
+                                                    styles.transactionInfo
+                                                }
+                                                onClick={viewTransaction}
                                                 height={20}
                                                 src="/img/search-gray.svg"
                                             />
@@ -128,6 +152,10 @@ export default function Home(props) {
                                         </td>
                                         <td>
                                             <img
+                                                className={
+                                                    styles.transactionInfo
+                                                }
+                                                onClick={viewTransaction}
                                                 height={20}
                                                 src="/img/search-gray.svg"
                                             />
@@ -167,11 +195,15 @@ export default function Home(props) {
                             <div className={styles.quantityContainer}>
                                 <div className={styles.inputQuantity}>
                                     <span>R$</span>
-                                    <input type="text" />
+                                    <input
+                                        type="text"
+                                        value={previewInput}
+                                        onChange={onPreviewInputChange}
+                                    />
                                 </div>
                                 <div className={styles.outputQuantity}>
                                     {' '}
-                                    = 100 STK
+                                    = {previewValue} STK
                                 </div>
                             </div>
                             <div className={styles.info}>
