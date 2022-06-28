@@ -5,7 +5,9 @@ import Card from '../../components/layout/cards/Card';
 export default function Home(props) {
     return (
         <div className={styles.home}>
-            <div className={styles.banner}>Escritório Virtual</div>
+            <div className={styles.banner}>
+                <span>Escritório Virtual</span>
+            </div>
             <div className={styles.balanceContainer}>
                 <BalanceCard
                     background={'#D6A84C'}
@@ -131,7 +133,9 @@ export default function Home(props) {
                     >
                         <div className={styles.buyStacks}>
                             <div className={styles.header}>
-                                <div className={styles.img}>x</div>
+                                <div className={styles.img}>
+                                    <img src="/img/gold-cart.svg" />
+                                </div>
                                 <div className={styles.headerLabel}>
                                     Comprar Stacks
                                 </div>

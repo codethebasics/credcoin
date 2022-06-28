@@ -1,15 +1,15 @@
 .home {    
     padding: 15px;
+    
 
-    .banner {
-        padding: 15px;
+    .banner {        
         font-size: 1.7rem;
         font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+        padding: 15px;
     }
 
     .balanceContainer {        
         display: flex;
-        
         >div:nth-child(2) {
             margin: 0 50px;
         }
@@ -144,7 +144,7 @@
                         align-items: center;
 
                         span {
-                            margin: 0 5px;
+                            padding: 0 5px;
                             font-size: 0.9rem;
                             color: rgb(150, 148, 148);
                         }
@@ -160,7 +160,7 @@
                     }
 
                     .outputQuantity {
-                        margin: 0 5px;
+                        padding: 0 5px;
                     }
                 }
 
@@ -175,7 +175,7 @@
                         width: 100%;
                         outline: none;
                         border: 0;
-                        padding: 15px;
+                        padding: 15px 0;
                         border-radius: 15px;
                         font-size: 1.2rem;
                         color: #FFFFFF;
@@ -190,8 +190,6 @@
             .infoStacks {
                 display: flex;
                 flex-direction: column;
-                padding: 0 5px;
-
 
                 .label {
                     color: #222;
@@ -204,7 +202,7 @@
                     padding: 15px 0;
                     button {
                         width: 100%;
-                        padding: 15px;
+                        padding: 15px 0;
                         border-radius: 15px;
                         border: 0;
                         outline: none;
@@ -219,8 +217,7 @@
 
             .sacarStacks {
                 display: flex;
-                flex-direction: column;
-                padding: 0 5px;
+                flex-direction: column;                
 
                 .label {
                     color: #222;
@@ -233,7 +230,7 @@
                     padding: 15px 0;
                     button {
                         width: 100%;
-                        padding: 15px;
+                        padding: 15px 0;
                         border-radius: 15px;
                         border: 0;
                         outline: none;
