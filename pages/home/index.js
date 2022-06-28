@@ -3,6 +3,22 @@ import { BalanceCard } from '../../components/layout/cards';
 import Card from '../../components/layout/cards/Card';
 
 export default function Home(props) {
+    const listarTransacoes = async () => {
+        alert('Ver todas as transações');
+    };
+
+    const comprarStacks = async () => {
+        alert('Comprar STACKS');
+    };
+
+    const baixarWhitepaper = async () => {
+        alert('Baixar Whitepaper');
+    };
+
+    const resgatarTokens = async () => {
+        alert('Resgatar Tokens');
+    };
+
     return (
         <div className={styles.home}>
             <div className={styles.banner}>
@@ -121,7 +137,9 @@ export default function Home(props) {
                             </table>
                         </div>
                         <div className={styles.cta}>
-                            <button>VER TODAS AS TRANSAÇÕES</button>
+                            <button onClick={listarTransacoes}>
+                                VER TODAS AS TRANSAÇÕES
+                            </button>
                         </div>
                     </div>
                 </Card>
@@ -163,7 +181,9 @@ export default function Home(props) {
                                 </span>
                             </div>
                             <div className={styles.cta}>
-                                <button>Comprar Stacks</button>
+                                <button onClick={comprarStacks}>
+                                    Comprar Stacks
+                                </button>
                             </div>
                         </div>
                     </Card>
@@ -177,7 +197,9 @@ export default function Home(props) {
                                 <span>Entenda como o token CRD funciona</span>
                             </div>
                             <div className={styles.cta}>
-                                <button>Baixar whitepaper CRD</button>
+                                <button onClick={baixarWhitepaper}>
+                                    Baixar whitepaper CRD
+                                </button>
                             </div>
                         </div>
                     </Card>
@@ -191,7 +213,9 @@ export default function Home(props) {
                                 <span>Resgatar CRD Tokens</span>
                             </div>
                             <div className={styles.cta}>
-                                <button>Baixar whitepaper CRD</button>
+                                <button onClick={resgatarTokens}>
+                                    Sacar Tokens
+                                </button>
                             </div>
                         </div>
                     </Card>

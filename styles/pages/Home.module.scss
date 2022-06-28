@@ -101,7 +101,7 @@
         }
 
         .right {
-            padding: 0 15px;
+            padding-left: 15px;
 
             >div {
                 margin-bottom: 25px;
@@ -201,6 +201,7 @@
                 .cta {
                     padding: 15px 0;
                     button {
+                        text-transform: uppercase;
                         width: 100%;
                         padding: 15px 0;
                         border-radius: 15px;
@@ -229,6 +230,7 @@
                 .cta {
                     padding: 15px 0;
                     button {
+                        text-transform: uppercase;
                         width: 100%;
                         padding: 15px 0;
                         border-radius: 15px;
