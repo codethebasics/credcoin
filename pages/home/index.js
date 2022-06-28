@@ -1,6 +1,6 @@
 import styles from '../../styles/pages/Home.module.scss';
-import { BalanceCard } from '../../components/layout/cards';
-import Card from '../../components/layout/cards/Card';
+import { BalanceCard } from '../../components/cards';
+import Card from '../../components/cards/Card';
 import { useState } from 'react';
 
 export default function Home(props) {
