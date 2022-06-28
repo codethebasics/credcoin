@@ -32,6 +32,7 @@ export default function Home(props) {
         if (!isNaN(value)) {
             setPreviewInput(value);
             setPreviewValue(Math.round(value * 10) / 100);
+        }
     };
 
     return (
@@ -195,12 +196,8 @@ export default function Home(props) {
                                 <div className={styles.inputQuantity}>
                                     <span>R$</span>
                                     <input
-<<<<<<< HEAD
                                         type="number"
                                         step=".1"
-=======
-                                        type="text"
->>>>>>> ce1a0eb64b5c13060a0cf4aee1184d86f1129b3b
                                         value={previewInput}
                                         onChange={onPreviewInputChange}
                                     />
