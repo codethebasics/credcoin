@@ -22,82 +22,7 @@
         .leftContainer {
             display: flex;
             flex-direction: column;
-
-            .header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 15px;
-
-                .label {
-                    font-size: 1.05rem;
-                    text-transform: uppercase;
-                    color: #222;
-                }
-            }
-
-            .table {
-                padding: 15px;    
-                
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-
-                    tbody {
-                        tr {
-                            &:hover {
-                                background: #ebebeb;
-                            }
-                        }
-                    }
-                }
-
-                tr {                 
-                    margin: 0;
-                    border-bottom: 1px solid #d4d4d4;
-                    
-
-                    th, td {
-                        text-align: center;
-                        padding: 5px;
-                    }
-
-                    th {
-                        color: rgb(63, 61, 61);
-                        border-right: 1px solid #d4d4d4;
-
-                        &:nth-last-child(-n+2), 
-                        &:last-child {
-                            border-right: 0;
-                        }
-                    }
-    
-                    td {
-                        color: #797171;                        
-                    }                    
-                }
-            }
-
-            .cta {
-                padding: 15px;
-                display: flex;
-                justify-content: flex-end;
-                
-                button {
-                    padding: 15px;
-                    border: 0;
-                    outline: 0;
-                    background: #D6A84C;
-                    color: #FFFFFF;
-                    border-radius: 15px;
-                    cursor: pointer;
-                    opacity: .9;
-
-                    &:hover {
-                        opacity: 1;
-                    }
-                }
-            }
+            width: 100%;          
         }
 
         .right {
@@ -109,82 +34,6 @@
 
             >div:last-child {
                 margin-bottom: 0;
-            }
-
-            .buyStacks {
-                
-                color: #222;
-
-                .header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 15px 0;
-
-                    .headerLabel {
-                        text-transform: uppercase;
-                    }
-                }
-
-                .label {
-                    padding: 5px 0;
-                }
-
-                .quantityContainer {
-                    display: flex;
-                    align-items: center;
-                    padding: 15px 0; 
-
-                    .inputQuantity {
-                        background: #FFFFFF;
-                        border: 1px solid #ddd;
-                        padding: 5px;
-                        border-radius: 15px;
-                        display: flex;
-                        align-items: center;
-
-                        span {
-                            padding: 0 5px;
-                            font-size: 0.9rem;
-                            color: rgb(150, 148, 148);
-                        }
-
-                        input {
-                            outline: none;
-                            border: 0;
-                            padding: 5px;
-                            font-size: 1.3rem;
-                            width: 100%;
-                            max-width: 100px;
-                        }
-                    }
-
-                    .outputQuantity {
-                        padding: 0 5px;
-                    }
-                }
-
-                .info {
-                    font-size: .8rem;
-                }
-
-                .cta {
-                    padding: 15px 0;
-                    
-                    button {
-                        width: 100%;
-                        outline: none;
-                        border: 0;
-                        padding: 15px 0;
-                        border-radius: 15px;
-                        font-size: 1.2rem;
-                        color: #FFFFFF;
-                        background: #428C36;
-                        text-transform: uppercase;
-                        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
-                        cursor: pointer;
-                    }
-                }
             }
 
             .infoStacks {
@@ -242,8 +91,7 @@
                         font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
                         cursor: pointer;
                     }
-                }
-                
+                }                
             }
         }
     }
