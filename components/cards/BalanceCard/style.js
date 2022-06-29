@@ -30,7 +30,7 @@ export const Body = styled.div`
 `;
 
 export const Value = styled.div`
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 0 15px;
 `;
 
