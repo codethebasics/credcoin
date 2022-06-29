@@ -25,6 +25,11 @@ a {
     width: 300px;
 }
 
+#sidebarShortContainer {
+    display: none;
+    grid-area: sidebarShort;
+}
+
 #headerContainer {
     grid-area: header;
 }
@@ -69,4 +74,20 @@ a {
 @font-face {
     font-family: gothamLight;
     src: url('../public/fonts/gotham/Gotham HTF Light.ttf');
+}
+
+@media (max-width: 1000px) {
+    #mainContainer {        
+        grid-template-areas: 
+            "sidebarShort header"
+            "sidebarShort body";
+
+            #sidebarContainer {
+                display: none;
+            }
+
+            #sidebarShortContainer {
+                display: flex;
+            }
+    }
 }
