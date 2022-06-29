@@ -1,6 +1,5 @@
 .home {    
     padding: 15px;
-    
 
     .banner {        
         font-size: 1.7rem;
@@ -118,3 +117,29 @@
 .transactionInfo {
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1000px) {
+
+    .balanceContainer {        
+        flex-direction: column;
+        >div:nth-child(2) {
+            margin: 25px 0 !important;
+        }
+    }
+
+    .formContainer {
+        flex-direction: column;
+
+        .leftContainer {
+            margin-bottom: 25px;
+        }
+
+        .right {
+            padding-left: 0 !important;
+
+            >div {
+                margin-bottom: 0;
+            }            
+        }
+    }
+  }
