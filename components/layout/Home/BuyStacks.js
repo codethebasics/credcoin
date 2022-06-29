@@ -15,7 +15,7 @@ export default function BuyStacks(props) {
     };
 
     const comprarStacks = async () => {
-        alert('Comprar STACKS');
+        alert('Comprar STACKS: ' + previewValue);
     };
 
     return (
@@ -38,6 +38,7 @@ export default function BuyStacks(props) {
                         <input
                             type="number"
                             step=".1"
+                            min="0"
                             value={previewInput}
                             onChange={onPreviewInputChange}
                         />

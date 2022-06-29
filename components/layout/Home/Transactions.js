@@ -33,7 +33,9 @@ export default function Transaction(props) {
         },
     ]);
 
-    const listTransactions = async () => {};
+    const listTransactions = async () => {
+        alert('listing transactions...');
+    };
 
     const viewTransaction = async () => {
         alert('View transaction');
