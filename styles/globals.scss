@@ -4,14 +4,24 @@
     box-sizing: border-box;
 }
 
+html, body {
+    min-height: 100% !important;
+    height: 100%;
+}
+
+html,
+      body,
+      body > div:first-child,
+      div#__next,
+      div#__next > div {
+        height: 100%;
+      }
+
 a {
     text-decoration: none;
 }
 
-
-#mainContainer {
-    height: 100vh;
-    min-width: 100vw;
+#mainContainer {        
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;

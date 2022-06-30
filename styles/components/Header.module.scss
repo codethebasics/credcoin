@@ -6,6 +6,7 @@
     align-items: center;
     padding: 15px;
     font-family: gothamBook, Verdana, Geneva, Tahoma, sans-serif;
+    
 
     .breadcrumbContainer {
         
@@ -29,7 +30,7 @@
                 height: 25px;
                 margin: 0 10px;
                 outline: none;
-                width: 200px;
+                max-width: 200px;
             }
 
         }
@@ -53,4 +54,12 @@
 @font-face {
     font-family: gothamLight;
     src: url('../../public/fonts/gotham/Gotham\ HTF\ Light.ttf');
+}
+
+@media (max-width: 1000px) {
+    #header {
+        .navlinks {
+            display: none;
+        }
+    }
 }
