@@ -133,13 +133,17 @@
         .leftContainer {
             margin-bottom: 25px;
         }
-
+        
         .right {
             padding-left: 0 !important;
-
+            
             >div {
                 margin-bottom: 0;
-            }            
+            }
+            
+            button {
+                font-size: .9rem !important;
+            }
         }
     }
   }

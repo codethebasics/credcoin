@@ -7,7 +7,7 @@ export default function SidebarShort(props) {
             <div>
                 <div className={styles.brand}>
                     <div className={styles.menu}>
-                        <img height={40} src="/img/short-icon.png" />
+                        <img height={30} src="/img/short-icon.png" />
                     </div>
                 </div>
                 <div className={styles.link}>

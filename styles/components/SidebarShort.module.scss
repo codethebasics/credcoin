@@ -15,7 +15,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px;
+            padding: 25px 15px;
 
             .menu {
                 cursor: pointer;
@@ -30,7 +30,7 @@
                 li {
                     display: flex;
                     justify-content: center;
-                    padding: 10px 0;
+                    padding: 15px;
                     cursor: pointer;
                     display: flex;
                     align-items: center;
