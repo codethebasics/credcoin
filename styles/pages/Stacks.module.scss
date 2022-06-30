@@ -1,0 +1,168 @@
+.stacksContainer {    
+    padding: 15px;
+
+    .header {
+        padding: 15px;
+    }
+
+    .balanceContainer {
+        padding: 15px 0;
+        display: flex;
+        >div:nth-child(2) {
+            margin: 0 25px;
+        }
+        margin-bottom: 15px;
+    }
+
+    .formContainer {
+        .header {
+            display: flex;
+            justify-content: space-between;
+
+            .label {
+                text-transform: uppercase;
+            }
+        }
+
+        .steps {
+            padding: 15px 0;
+            display: flex;
+    
+            .step1Container {
+                width: 100%;
+
+                .header {
+                    justify-content: flex-start;
+                    align-items: center;
+                    >div {
+                        width: auto;
+                    }
+                    >div:first-child {
+                        padding: 5px 15px;
+                    }
+                    >div:last-child {
+                        margin-left: 15px;
+                        color: #222;
+                    }
+                }
+
+                .description {
+                    padding: 15px;
+
+                    p {
+                        color: #222;
+                        margin-bottom: 15px;
+                        max-width: 350px;
+                    }
+
+                    p:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .form {
+                    padding: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .left {
+                        width: 100%;
+
+                        span {
+                            color: #262323;
+                            text-transform: uppercase;
+                            opacity: .5;
+                        }
+
+                        .inputValue {
+                            padding: 5px 15px;
+                            border: 1px solid #ddd;
+                            border-radius: 10px;
+                            background: #fff;
+                            max-width: 200px;
+                            display: flex;
+                            align-items: center;
+
+                            >span {
+                                color: #888;
+                            }
+
+                            input {
+                                width: 100%;
+                                padding: 5px;
+                                border: 0;
+                                outline: none;
+                            }
+                        }
+                    }
+                    
+                    .right {
+                        width: 100%;
+
+                        .header {
+                            span {                                
+                                color: #262323;
+                                text-transform: uppercase;
+                                opacity: .5;
+                            }
+                        }
+
+                        .bonusContainer {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .discountLabel {
+                                display: flex;
+                                flex-direction: column;
+
+                                div:first-child {
+                                    span:first-child {
+                                        text-decoration: line-through;
+                                    }
+                                    span:last-child {
+                                        margin-left: 5px;
+                                        font-size: 0.7rem;
+                                    }
+                                }
+
+                                div:last-child {                                    
+                                    span:last-child {
+                                        margin-left: 5px;
+                                        font-size: 0.7rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .info {
+                    padding: 15px;
+                    font-size: 0.9rem;
+                    color: #222;
+
+                    >div {
+                        display: flex;
+                        align-items: center;
+
+                        >span {
+                            margin-left: 5px;
+                            color: #777;
+                        }
+                    }
+
+                    >div:first-child {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            
+            .step2Container {
+                width: 100%;
+                margin-left: 15px;
+            }
+        }
+    }
+}
