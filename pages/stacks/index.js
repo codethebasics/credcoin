@@ -142,7 +142,45 @@ export default function Stacks(props) {
                                 color={'#D6A84C'}
                                 padding={'15px'}
                             >
-                                step2
+                                <div className={styles.header}>
+                                    <Card
+                                        background={'#D6A84C'}
+                                        color={'#FFFFFF'}
+                                        padding={'15px'}
+                                    >
+                                        <span>PASSO 2</span>
+                                    </Card>
+                                    <div>
+                                        <span>PAGAMENTO</span>
+                                    </div>
+                                </div>
+                                <div className={styles.description}>
+                                    <p>
+                                        Para receber suas Stacks faça o
+                                        pagamento. Você pode fazer um pagamento
+                                        diretamente para o nosso endereço de
+                                        pagamento ou pagar online. Após o
+                                        pagamento, você receberá um e-mail de
+                                        confirmação.
+                                    </p>
+                                </div>
+                                <div className={styles.cta}>
+                                    <button>Efetuar Pagamento</button>
+                                </div>
+                                <div className={styles.info}>
+                                    <div>
+                                        <img
+                                            height="15"
+                                            src="/img/gold-info.svg"
+                                        />
+                                        <span>
+                                            As Stacks apareceção em sua conta
+                                            depois que seu pagamento for
+                                            efetuado e revisado por nossa
+                                            equipe.
+                                        </span>
+                                    </div>
+                                </div>
                             </Card>
                         </div>
                     </div>

@@ -30,6 +30,7 @@
     
             .step1Container {
                 width: 100%;
+                display: flex;
 
                 .header {
                     justify-content: flex-start;
@@ -155,6 +156,70 @@
 
                     >div:first-child {
                         margin-bottom: 10px;
+                    }
+                }
+            }
+
+            .step2Container {
+                width: 100%;
+                display: flex;
+                
+                .header {
+                    justify-content: flex-start;
+                    align-items: center;
+                    >div {
+                        width: auto;
+                    }
+                    >div:first-child {
+                        padding: 5px 15px;
+                    }
+                    >div:last-child {
+                        margin-left: 15px;
+                        color: #222;
+                    }
+                }
+
+                .description {
+                    padding: 15px;
+
+                    p {
+                        color: #222;
+                        max-width: 350px;
+                    }
+                }
+
+                .cta {
+                    margin-bottom: 15px;
+                    display: flex;
+                    justify-content: flex-end;
+                    
+                    button {
+                        text-transform: uppercase;
+                        padding: 15px;
+                        border-radius: 15px;
+                        border: 0;
+                        outline: none;
+                        color: #FFFFFF;
+                        background: #428C36;
+                        font-size: 1.2rem;
+                        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+                        cursor: pointer;
+                    }
+                }
+
+                .info {
+                    padding: 15px;
+                    font-size: 0.9rem;
+                    color: #222;
+
+                    >div {
+                        display: flex;
+                        align-items: center;
+
+                        >span {
+                            margin-left: 5px;
+                            color: #777;
+                        }
                     }
                 }
             }
