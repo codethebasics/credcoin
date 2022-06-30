@@ -72,3 +72,19 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+
+    .buyStacks {
+        .header {
+            img {
+                height: 35px;
+            }
+
+            .label {
+                font-size: 1.9rem;
+            }
+        }
+    
+    }
+}
