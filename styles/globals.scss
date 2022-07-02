@@ -40,6 +40,11 @@ a {
     grid-area: sidebarShort;
 }
 
+#sidebarBottomContainer {
+    display: none;
+    grid-area: sidebarBottom;
+}
+
 #headerContainer {
     grid-area: header;
 }
@@ -60,7 +65,6 @@ a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
   border-radius: 5px;
 }
 
@@ -102,6 +106,29 @@ a {
 
             #sidebarShortContainer {
                 display: flex;
+            }
+    }
+}
+
+@media (max-width: 500px) {
+    #mainContainer {        
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "header header"
+            "body body"
+            "sidebarBottom sidebarBottom";
+
+            #sidebarContainer {
+                display: none;
+            }
+
+            #sidebarShortContainer {
+                display: none;
+            }
+
+            #sidebarBottomContainer {
+                display: flex;
+                background: lime;
             }
     }
 }
