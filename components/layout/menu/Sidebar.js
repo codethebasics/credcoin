@@ -9,7 +9,10 @@ export default function Sidebar(props) {
                     <div className={styles.logo}>
                         <img src="/img/logo-gold.svg" />
                     </div>
-                    <div className={styles.menu}>
+                    <div
+                        className={styles.menu}
+                        onClick={props.toggleExpandMenu}
+                    >
                         <img src="/img/hamburger-gold.svg" />
                     </div>
                 </div>

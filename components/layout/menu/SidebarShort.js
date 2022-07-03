@@ -6,7 +6,10 @@ export default function SidebarShort(props) {
         <div id={styles.sidebar}>
             <div>
                 <div className={styles.brand}>
-                    <div className={styles.menu}>
+                    <div
+                        className={styles.menu}
+                        onClick={props.toggleExpandMenu}
+                    >
                         <img height={30} src="/img/short-icon.png" />
                     </div>
                 </div>
