@@ -29,29 +29,35 @@ export default function Sidebar(props) {
                 </div>
                 <div className={styles.link}>
                     <ul>
-                        <li>
-                            <img src="/img/home-gold.svg" height={20} />
-                            <Link href="/home">
+                        <Link href="/home">
+                            <li>
+                                <img src="/img/home-gold.svg" height={20} />
                                 <a>Home</a>
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                         {/* <div className={styles.submenu}>
                             <div>Cashx</div>
                             <div>Compra Programada</div>
                             <div>Exchange</div>
                         </div> */}
-                        <li>
-                            <img src="/img/wallet-gold.svg" height={20} />
-                            <Link href="/extrato">
+                        <Link href="/extrato">
+                            <li>
+                                <img src="/img/wallet-gold.svg" height={20} />
                                 <a>Saldo</a>
-                            </Link>
-                        </li>
-                        <li>
-                            <img src="/img/signout-gold.svg" height={20} />
-                            <Link href="/">
+                            </li>
+                        </Link>
+                        <Link href="/stacks">
+                            <li>
+                                <img src="/img/gold-coin.svg" height={20} />
+                                <a>Stacks</a>
+                            </li>
+                        </Link>
+                        <Link href="/">
+                            <li>
+                                <img src="/img/signout-gold.svg" height={20} />
                                 <a>Sair</a>
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </div>
