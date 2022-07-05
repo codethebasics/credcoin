@@ -42,8 +42,8 @@ export default function Sidebar(props) {
                         </div> */}
                         <Link href="/extrato">
                             <li>
-                                <img src="/img/wallet-gold.svg" height={20} />
-                                <a>Saldo</a>
+                                <img src="/img/extract-gold.svg" height={20} />
+                                <a>Extrato</a>
                             </li>
                         </Link>
                         <Link href="/stacks">

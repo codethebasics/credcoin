@@ -1,0 +1,24 @@
+.extrato {    
+    padding: 15px;
+
+    .banner {        
+        font-size: 1.7rem;
+        font-family: gothamLight, Verdana, Geneva, Tahoma, sans-serif;
+        padding: 15px;
+    }
+
+    .balanceContainer {        
+        display: flex;
+        >div:nth-child(2) {
+            margin: 0 25px;
+        }
+    }
+
+    .historyContainer {
+        margin: 25px 0;
+    }
+
+    .extractContainer {
+
+    }
+}
