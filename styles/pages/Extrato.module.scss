@@ -128,6 +128,73 @@
     .extractContainer {
         .extract {
             padding: 15px;
+                  
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                >div {
+                    &:nth-child(1)  {
+                        display: flex;
+                        align-items: center;
+                        >span {
+                            &:nth-child(1) {
+                                font-size: 1.3rem;
+                            }
+                            &:nth-child(2) {
+                                margin: 0 15px;
+                                color: #D6A84C;
+                            }
+                        }                    
+                    }
+                    &:nth-child(2) {
+                        >div {
+                            &:nth-child(1) {
+                                >span {
+                                    &:nth-child(1) {
+                                        color: #D6A84C;
+                                    }
+                                    &:nth-child(2) {
+                                        margin-left: 5px;
+                                        font-weight: bold;
+                                        color: #D6A84C;
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                        font-size: 0.8rem;
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                display: flex;
+                                justify-content: center;
+                                padding: 5px 0;
+                                
+                                >span {
+                                    &:nth-child(1) {
+                                        color: #000000;
+                                        opacity: .5;
+                                    }
+                                    &:nth-child(2) {
+                                        color: #D6A84C;
+                                        margin-left: 10px;
+
+                                        img {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .body {
+                >div {
+                    margin-top: 15px;                    
+                }
+            }
         }
     }
 }

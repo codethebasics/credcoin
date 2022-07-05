@@ -1,5 +1,6 @@
 import { BalanceCard } from '../../components/cards';
 import Card from '../../components/cards/Card';
+import Transaction from '../../components/layout/Home/Transactions';
 import styles from '../../styles/pages/Extrato.module.scss';
 
 export default function Extrato(props) {
@@ -100,7 +101,9 @@ export default function Extrato(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className={styles.table}>Table</div>
+                            <div className={styles.table}>
+                                <Transaction />
+                            </div>
                         </div>
                     </div>
                 </Card>
@@ -109,7 +112,19 @@ export default function Extrato(props) {
                 <Card background={'#FFFFFF'} color={'#222222'} padding={'15px'}>
                     <div className={styles.extract}>
                         <div className={styles.header}>
-                            <div>Histórico de transações - extrato</div>
+                            <div>
+                                <span>Histórico de transações</span>
+                                <span>{' > '}</span>
+                                <span>
+                                    <Card
+                                        background="#D6A84C"
+                                        color="#FFFFFF"
+                                        padding="5px 15px"
+                                    >
+                                        Extrato
+                                    </Card>
+                                </span>
+                            </div>
                             <div>
                                 <div>
                                     <span>
@@ -118,7 +133,7 @@ export default function Extrato(props) {
                                     <span>Clique aqui</span>
                                 </div>
                                 <div>
-                                    <span>Extrato Histórico de Transações</span>
+                                    <span>Exportar extrato</span>
                                     <span>x</span>
                                 </div>
                             </div>
@@ -127,7 +142,36 @@ export default function Extrato(props) {
                             <div>
                                 <span>Detalhes da operação</span>
                             </div>
-                            <div>table</div>
+                            <div>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>STATUS:</td>
+                                            <td>CONCLUÍDA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HORA:</td>
+                                            <td>16H32</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DATA:</td>
+                                            <td>20/06/2022</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ATIVO:</td>
+                                            <td>STACK-STK</td>
+                                        </tr>
+                                        <tr>
+                                            <td>QUANTIDADE:</td>
+                                            <td>400</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ID.SMART:</td>
+                                            <td>013213</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </Card>
