@@ -12,21 +12,26 @@ export default function SidebarBottom(props) {
                 </div>
                 <div className={styles.link}>
                     <ul>
-                        <li>
-                            <Link href="/home">
+                        <Link href="/home">
+                            <li>
                                 <img src="/img/home-gold.svg" height={20} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/extrato">
-                                <img src="/img/wallet-gold.svg" height={20} />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/">
+                            </li>
+                        </Link>
+                        <Link href="/extrato">
+                            <li>
+                                <img src="/img/extract-gold.svg" height={20} />
+                            </li>
+                        </Link>
+                        <Link href="/stacks">
+                            <li>
+                                <img src="/img/gold-coin.svg" height={20} />
+                            </li>
+                        </Link>
+                        <Link href="/">
+                            <li>
                                 <img src="/img/signout-gold.svg" height={20} />
-                            </Link>
-                        </li>
+                            </li>
+                        </Link>
                     </ul>
                 </div>
             </div>
