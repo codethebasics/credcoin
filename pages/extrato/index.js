@@ -38,12 +38,98 @@ export default function Extrato(props) {
             </div>
             <div className={styles.historyContainer}>
                 <Card background={'#FFFFFF'} color={'#222222'} padding={'15px'}>
-                    HistoryContainer
+                    <div className={styles.history}>
+                        <div className={styles.header}>
+                            <div>
+                                <span>Histórico de transações</span>
+                                <span>{' > '}</span>
+                                <span>
+                                    <Card
+                                        background="#D6A84C"
+                                        color="#FFFFFF"
+                                        padding="5px 15px"
+                                    >
+                                        Extrato
+                                    </Card>
+                                </span>
+                            </div>
+                            <div>
+                                <div>
+                                    <span>
+                                        Não está visualizando sua transação?
+                                    </span>
+                                    <span>Clique aqui</span>
+                                </div>
+                                <div>
+                                    <span>Extrato Histórico de Transações</span>
+                                    <span>
+                                        <img src="/img/export-gold.svg" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.body}>
+                            <div className={styles.calendar}>
+                                <div>
+                                    <div>
+                                        <span>Tipo</span>
+                                        <span>
+                                            <img src="/img/caret-down-black.svg" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Data</span>
+                                        <span>
+                                            <img src="/img/caret-down-black.svg" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Ativo</span>
+                                        <span>
+                                            <img src="/img/caret-down-black.svg" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>Status</span>
+                                        <span>
+                                            <img src="/img/caret-down-black.svg" />
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <img src="/img/time-calendar-gold.svg" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={styles.table}>Table</div>
+                        </div>
+                    </div>
                 </Card>
             </div>
             <div className={styles.extractContainer}>
                 <Card background={'#FFFFFF'} color={'#222222'} padding={'15px'}>
-                    ExtractContainer
+                    <div className={styles.extract}>
+                        <div className={styles.header}>
+                            <div>Histórico de transações - extrato</div>
+                            <div>
+                                <div>
+                                    <span>
+                                        Não está visualizando sua transação?
+                                    </span>
+                                    <span>Clique aqui</span>
+                                </div>
+                                <div>
+                                    <span>Extrato Histórico de Transações</span>
+                                    <span>x</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.body}>
+                            <div>
+                                <span>Detalhes da operação</span>
+                            </div>
+                            <div>table</div>
+                        </div>
+                    </div>
                 </Card>
             </div>
         </div>
