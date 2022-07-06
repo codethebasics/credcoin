@@ -12,7 +12,11 @@
     }
 
     .breadcrumbContainer {
-        
+        display: flex;
+
+        .separator {
+            margin: 0 5px;            
+        }
     }
 
     .navlinks {

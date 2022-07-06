@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useEffect } from 'react';
 import styles from '../../../styles/components/SidebarBottom.module.scss';
 
 export default function SidebarBottom(props) {

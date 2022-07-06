@@ -7,6 +7,9 @@ import WithdrawCRD from '../../components/layout/Home/WithdrawCRD';
 import { useEffect, useState } from 'react';
 
 export default function Home(props) {
+    useEffect(() => {
+        props.setPaths(['Home']);
+    }, []);
     return (
         <div className={styles.home}>
             <div className={styles.banner}>

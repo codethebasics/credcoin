@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import { BalanceCard } from '../../components/cards';
 import Card from '../../components/cards/Card';
 import Transaction from '../../components/layout/Home/Transactions';
 import styles from '../../styles/pages/Extrato.module.scss';
 
 export default function Extrato(props) {
+    useEffect(() => {
+        props.setPaths(['Home', 'Extrato']);
+    }, []);
+
     return (
         <div className={styles.extrato}>
             <div className={styles.banner}>
@@ -138,7 +143,9 @@ export default function Extrato(props) {
                                 </div>
                                 <div>
                                     <span>Exportar extrato</span>
-                                    <span>x</span>
+                                    <span>
+                                        <img src="/img/export-gold.svg" />
+                                    </span>
                                 </div>
                             </div>
                         </div>

@@ -1,8 +1,12 @@
 import styles from '../../styles/pages/Stacks.module.scss';
 import { BalanceCard } from '../../components/cards';
 import Card from '/components/cards/Card';
+import { useEffect } from 'react';
 
 export default function Stacks(props) {
+    useEffect(() => {
+        props.setPaths(['Home', 'Stacks']);
+    }, []);
     return (
         <div className={styles.stacksContainer}>
             <div className={styles.header}>Escritório Virtual</div>

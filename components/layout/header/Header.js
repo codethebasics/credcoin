@@ -9,7 +9,18 @@ export default function Header(props) {
                 </div>
             </div>
             <div className={styles.breadcrumbContainer}>
-                <span>Home</span>
+                {props.paths.map((p, index) => (
+                    <div key={index} className={styles.pathFragment}>
+                        <span className={styles.separator}>
+                            {index > 0 ? (
+                                <img src="/img/caret-right-black.svg" />
+                            ) : (
+                                ''
+                            )}
+                        </span>
+                        <span>{p}</span>
+                    </div>
+                ))}
             </div>
             <div className={styles.navlinks}>
                 <div className={styles.inputContainer}>
@@ -23,3 +34,7 @@ export default function Header(props) {
         </div>
     );
 }
+
+Header.defaultProps = {
+    paths: [],
+};

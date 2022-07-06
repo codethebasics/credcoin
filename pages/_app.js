@@ -3,10 +3,15 @@ import Header from '../components/layout/header/Header.js';
 import Sidebar from '../components/layout/menu/Sidebar';
 import SidebarShort from '../components/layout/menu/SidebarShort';
 import SidebarBottom from '../components/layout/menu/SidebarBottom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App({ Component, pageProps }) {
     const [expandMenu, setExpandMenu] = useState(false);
+    const [paths, setPaths] = useState([]);
+
+    useEffect(() => {
+        setPaths(['Home']);
+    }, []);
 
     const toggleExpandMenu = () => {
         setExpandMenu(!expandMenu);
@@ -48,13 +53,13 @@ function App({ Component, pageProps }) {
                 />
             </div>
             <div id="sidebarBottomContainer">
-                <SidebarBottom />
+                <SidebarBottom setPaths={setPaths} />
             </div>
             <div id="headerContainer">
-                <Header />
+                <Header paths={paths} />
             </div>
             <div id="bodyContainer">
-                <Component {...pageProps} />
+                <Component setPaths={setPaths} {...pageProps} />
             </div>
         </div>
     );
