@@ -42,7 +42,9 @@ export default function Extrato(props) {
                     <div className={styles.history}>
                         <div className={styles.header}>
                             <div>
-                                <span>Histórico de transações</span>
+                                <span className={styles.label}>
+                                    Histórico de transações
+                                </span>
                                 <span>{' > '}</span>
                                 <span>
                                     <Card
@@ -71,7 +73,7 @@ export default function Extrato(props) {
                         </div>
                         <div className={styles.body}>
                             <div className={styles.calendar}>
-                                <div>
+                                <div className={styles.filter}>
                                     <div>
                                         <span>Tipo</span>
                                         <span>
@@ -113,7 +115,9 @@ export default function Extrato(props) {
                     <div className={styles.extract}>
                         <div className={styles.header}>
                             <div>
-                                <span>Histórico de transações</span>
+                                <span className={styles.label}>
+                                    Histórico de transações
+                                </span>
                                 <span>{' > '}</span>
                                 <span>
                                     <Card
@@ -140,7 +144,9 @@ export default function Extrato(props) {
                         </div>
                         <div className={styles.body}>
                             <div>
-                                <span>Detalhes da operação</span>
+                                <span className={styles.label}>
+                                    Detalhes da operação
+                                </span>
                             </div>
                             <div>
                                 <table>
