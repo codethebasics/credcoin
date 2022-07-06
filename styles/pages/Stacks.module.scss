@@ -231,3 +231,25 @@
         }
     }
 }
+
+@media (max-width: 1000px) {
+
+    .stacksContainer {
+        .balanceContainer {        
+            flex-direction: column;
+            
+            >div:nth-child(2) {
+                margin: 15px 0;
+            }
+        }
+    }
+    .formContainer {
+        .steps {
+            flex-direction: column;
+
+            .step2Container {
+                margin: 15px 0 0 0 !important;
+            }
+        }
+    }
+}

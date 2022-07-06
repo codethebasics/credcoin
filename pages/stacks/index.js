@@ -37,7 +37,7 @@ export default function Stacks(props) {
             <div className={styles.formContainer}>
                 <Card background={'#D6A84C'} color={'#FFFFFF'} padding={'15px'}>
                     <div className={styles.header}>
-                        <div className={styles.logo}>Logo</div>
+                        <div className={styles.logo}></div>
                         <div className={styles.label}>Comprar token STK</div>
                     </div>
                     <div className={styles.steps}>
