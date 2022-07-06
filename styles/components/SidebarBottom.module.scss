@@ -4,7 +4,7 @@
     width: 100%;
     
     > div {
-        border-radius: 40px 0 15px 0;
+        border-radius: 15px 0 15px 0;
         width: 100%;
         color: #fff;
         font-family: gothamBook, Verdana, Geneva, Tahoma, sans-serif;
@@ -27,12 +27,13 @@
 
         .link {
             width: 100%;
-            
+        
             ul {
                 list-style-type: none;
                 display: flex;
                 
                 li {
+                    width: 100%;
                     display: flex;
                     justify-content: center;
                     padding: 015px;

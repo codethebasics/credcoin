@@ -7,6 +7,9 @@
     padding: 15px;
     font-family: gothamBook, Verdana, Geneva, Tahoma, sans-serif;
     
+    .mobileHeaderLogo {
+        display: none;
+    }
 
     .breadcrumbContainer {
         
@@ -58,6 +61,22 @@
 
 @media (max-width: 1000px) {
     #header {
+        
+        .navlinks {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #header {
+        padding: 0 15px 0 0;
+        .mobileHeaderLogo {
+            display: flex;
+            padding: 5px;
+            background: #04042D;
+            border-radius: 0 5px 5px 0;
+        }
         .navlinks {
             display: none;
         }

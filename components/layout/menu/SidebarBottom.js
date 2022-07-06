@@ -5,11 +5,6 @@ export default function SidebarBottom(props) {
     return (
         <div id={styles.sidebar}>
             <div>
-                <div className={styles.brand}>
-                    <div className={styles.menu}>
-                        <img height={30} src="/img/short-icon.png" />
-                    </div>
-                </div>
                 <div className={styles.link}>
                     <ul>
                         <Link href="/home">
