@@ -1,9 +1,6 @@
 .stacksContainer {    
     padding: 15px;
 
-    .header {
-        padding: 15px;
-    }
 
     .balanceContainer {
         padding: 15px 0;
@@ -18,7 +15,8 @@
         .header {
             display: flex;
             justify-content: space-between;
-
+            align-items: center;
+            padding: 0 15px;
             .label {
                 text-transform: uppercase;
             }
@@ -188,8 +186,7 @@
                     }
                 }
 
-                .cta {
-                    margin-bottom: 15px;
+                .cta {                    
                     display: flex;
                     justify-content: flex-end;
                     
@@ -247,9 +244,33 @@
         .steps {
             flex-direction: column;
 
+            .step1Container {
+                .form {
+                    flex-direction: column;
+
+                    .left {
+                        >div {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin: 5px 0 25px 0;
+                        }
+                    }
+
+                    .right {
+                       .header {
+                        display: flex;
+                        justify-content: center;
+                       }
+                    }
+                }
+            }
             .step2Container {
                 margin: 15px 0 0 0 !important;
-            }
+            }           
+        }
+        .cta {
+            justify-content: center !important;
         }
     }
 }
