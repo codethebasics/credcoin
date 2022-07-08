@@ -1,0 +1,55 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    
+    .formControl { 
+        padding: 0 50px;              
+        width: 100%;
+        margin-bottom: 25px;
+
+        input, button {
+            border-radius: 5px;
+        }
+        
+        label {
+            display: flex;
+        }
+    
+        input {
+            width: 100%;
+            border: 0;
+            padding: 10px;
+            border: 1px solid #262323;
+            outline: none;
+            background: #f5f5f5;
+
+            &:focus {
+                background: #ffffff;
+            }
+        }
+
+        button {
+            width: 100%;
+            border: 0;
+            padding: 10px 15px;
+            margin-top: 15px;
+            background: #D6A84C;
+            font-size: 1.1rem;
+        }
+
+        .subform {
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: .8rem;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
