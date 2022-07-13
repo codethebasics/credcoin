@@ -1,7 +1,11 @@
 import Link from 'next/link';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../../src/contexts/AuthContext';
 import styles from '../../../styles/components/Sidebar.module.scss';
 
 export default function Sidebar(props) {
+    const { user } = useContext(AuthContext);
+
     return (
         <div id={styles.sidebar}>
             <div>
@@ -20,7 +24,7 @@ export default function Sidebar(props) {
                     <div>
                         <div>
                             <span>Olá,</span>
-                            <span>Maycon Marcos</span>
+                            <span>{user?.name}</span>
                         </div>
                         <div className={styles.info}>
                             maykonmarcos@gmail.com Cliente, ID# 00087
@@ -52,7 +56,7 @@ export default function Sidebar(props) {
                                 <a>Stacks</a>
                             </li>
                         </Link>
-                        <Link href="/">
+                        <Link href="/login">
                             <li>
                                 <img src="/img/signout-gold.svg" height={20} />
                                 <a>Sair</a>

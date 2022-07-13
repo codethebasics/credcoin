@@ -1,15 +1,31 @@
 import styles from '/styles/pages/Login.module.scss';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { AuthContext } from '../src/contexts/AuthContext';
 
-export default function login() {
+export default function Component() {
+    const { register, handleSubmit } = useForm();
+    const { signIn } = useContext(AuthContext);
+
+    useEffect(() => {}, []);
+
+    const handleSignIn = async (data) => {
+        await signIn(data);
+    };
+
     return (
-        <div className={styles.loginContainer}>
+        <form
+            className={styles.loginContainer}
+            onSubmit={handleSubmit(handleSignIn)}
+        >
             <div className={styles.formControl}>
-                <label for="inputUsername">Username</label>
-                <input id="inputUsername" />
+                <label htmlFor="inputUsername">Username</label>
+                <input id="inputUsername" {...register('username')} />
             </div>
             <div className={styles.formControl}>
-                <label for="inputPassword">Password</label>
-                <input type="password" />
+                <label htmlFor="inputPassword">Password</label>
+                <input type="password" {...register('password')} />
             </div>
             <div className={styles.formControl}>
                 <button className={styles.cta}>Entrar</button>
@@ -22,6 +38,6 @@ export default function login() {
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     );
 }

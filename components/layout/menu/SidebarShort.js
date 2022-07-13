@@ -35,7 +35,7 @@ export default function SidebarShort(props) {
                                 <img src="/img/gold-coin.svg" height={20} />
                             </li>
                         </Link>
-                        <Link href="/">
+                        <Link href="/login">
                             <li>
                                 <img src="/img/signout-gold.svg" height={20} />
                             </li>

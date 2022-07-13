@@ -4,8 +4,9 @@ import Sidebar from '../components/layout/menu/Sidebar';
 import SidebarShort from '../components/layout/menu/SidebarShort';
 import SidebarBottom from '../components/layout/menu/SidebarBottom';
 import { useEffect, useState } from 'react';
+import { AuthProvider } from '../src/contexts/AuthContext';
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps: { session, ...pageProps } }) {
     const [expandMenu, setExpandMenu] = useState(false);
     const [paths, setPaths] = useState([]);
 
@@ -39,29 +40,31 @@ function App({ Component, pageProps }) {
     };
 
     return (
-        <div id="mainContainer">
-            <div id="sidebarContainer">
-                <Sidebar
-                    show={expandMenu}
-                    toggleExpandMenu={toggleExpandMenu}
-                />
+        <AuthProvider>
+            <div id="mainContainer">
+                <div id="sidebarContainer">
+                    <Sidebar
+                        show={expandMenu}
+                        toggleExpandMenu={toggleExpandMenu}
+                    />
+                </div>
+                <div id="sidebarShortContainer">
+                    <SidebarShort
+                        show={!expandMenu}
+                        toggleExpandMenu={toggleExpandMenu}
+                    />
+                </div>
+                <div id="sidebarBottomContainer">
+                    <SidebarBottom setPaths={setPaths} />
+                </div>
+                <div id="headerContainer">
+                    <Header paths={paths} />
+                </div>
+                <div id="bodyContainer">
+                    <Component setPaths={setPaths} {...pageProps} />
+                </div>
             </div>
-            <div id="sidebarShortContainer">
-                <SidebarShort
-                    show={!expandMenu}
-                    toggleExpandMenu={toggleExpandMenu}
-                />
-            </div>
-            <div id="sidebarBottomContainer">
-                <SidebarBottom setPaths={setPaths} />
-            </div>
-            <div id="headerContainer">
-                <Header paths={paths} />
-            </div>
-            <div id="bodyContainer">
-                <Component setPaths={setPaths} {...pageProps} />
-            </div>
-        </div>
+        </AuthProvider>
     );
 }
 
