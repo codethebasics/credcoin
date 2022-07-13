@@ -6,14 +6,26 @@ import SidebarBottom from '../components/layout/menu/SidebarBottom';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from '../src/contexts/AuthContext';
 
+/**
+ * ===============
+ * CRD Application
+ * ===============
+ * @author codethebasics by DuckTech
+ */
 function App({ Component, pageProps: { session, ...pageProps } }) {
     const [expandMenu, setExpandMenu] = useState(false);
     const [paths, setPaths] = useState([]);
 
     useEffect(() => {
+        // Set breadcrumb path
         setPaths(['Home']);
     }, []);
 
+    /**
+     * --------------------------
+     * Toggle expand sidebar menu
+     * --------------------------
+     */
     const toggleExpandMenu = () => {
         setExpandMenu(!expandMenu);
         const mainContainer = document.getElementById('mainContainer');

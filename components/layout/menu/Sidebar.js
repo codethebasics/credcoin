@@ -27,7 +27,7 @@ export default function Sidebar(props) {
                             <span>{user?.name}</span>
                         </div>
                         <div className={styles.info}>
-                            maykonmarcos@gmail.com Cliente, ID# 00087
+                            {user?.email} Cliente, ID# {user?.id}
                         </div>
                     </div>
                 </div>

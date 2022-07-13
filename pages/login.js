@@ -4,6 +4,12 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../src/contexts/AuthContext';
 
+/**
+ * =====
+ * Login
+ * =====
+ * @author codethebasics by DuckTech
+ */
 export default function Component() {
     const { register, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);

@@ -3,8 +3,19 @@ import { recoverUserInfo, signInRequest } from '../../services/auth.service';
 import { setCookie, parseCookies } from 'nookies';
 import Router from 'next/router';
 
+/**
+ * ======================
+ * Authentication Context
+ * ======================
+ * @author codethebasics by DuckTech
+ */
 export const AuthContext = createContext({});
 
+/**
+ * ---------------------------------
+ * Authentication provider component
+ * ---------------------------------
+ */
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
 
@@ -17,18 +28,27 @@ export function AuthProvider({ children }) {
 
     const isAuthenticated = !!user;
 
+    /**
+     * --------------
+     * SignIn request
+     * --------------
+     */
     const signIn = async ({ username, password }) => {
+        // Recover token and user
         const { token, user } = await signInRequest({
             username,
             password,
         });
 
+        // Set cookie with 1 hour maxAge
         setCookie(undefined, 'credcoin.token', token, {
-            maxAge: 60 * 60 * 1, // 1 hora
+            maxAge: 60 * 60 * 1, // 1 hour
         });
 
+        // Set user into state
         setUser(user);
 
+        // Redirect user
         Router.push('/home');
     };
 
