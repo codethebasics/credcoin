@@ -8,7 +8,11 @@ export default async function authenticationHandler(req, res) {
 
     if (req.method === 'POST') {
         if (!username || !password) {
-            res.status(400).json({ message: 'Username/Password must be sent' });
+            res.status(400).json({
+                response: {
+                    message: 'Username/Password must be sent',
+                },
+            });
         } else {
             const form = new FormData();
             form.append('action', 'getDataUser');
@@ -16,41 +20,49 @@ export default async function authenticationHandler(req, res) {
             form.append('email', username);
             form.append('password', password);
 
-            const response = await fetch(process.env.CRD_API, {
-                method: 'POST',
-                mode: 'cors',
-                cache: 'default',
-                body: form,
-            });
+            try {
+                const response = await fetch(process.env.CRD_API, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'default',
+                    body: form,
+                });
 
-            if (response) {
-                const jsonResponse = await response.json();
-                const user = jsonResponse.data[0];
-                const KEY = process.env.API_SECRET;
+                if (response) {
+                    const jsonResponse = await response.json();
+                    const user = jsonResponse.data[0];
+                    const KEY = process.env.API_SECRET;
 
-                if (user) {
-                    const token = jwt.sign(
-                        {
-                            name: user.name,
-                            email: user.email,
-                            level_id: user.level_id,
-                            document_user: user.document_user,
-                            uf: user.uf,
-                            city: user.city,
-                            ip_conect: user.ip_conect,
-                        },
-                        KEY
-                    );
+                    if (user) {
+                        const token = jwt.sign(
+                            {
+                                name: user.name,
+                                email: user.email,
+                                level_id: user.level_id,
+                                document_user: user.document_user,
+                                uf: user.uf,
+                                city: user.city,
+                                ip_conect: user.ip_conect,
+                            },
+                            KEY
+                        );
 
-                    res.status(200).json({
-                        token: token,
-                        user: user,
-                    });
-                } else {
-                    res.status(400).json({
-                        message: 'Authentication failed.',
-                    });
+                        res.status(200).json({
+                            response: {
+                                token: token,
+                                user: user,
+                            },
+                        });
+                    } else {
+                        res.status(400).json({
+                            response: {
+                                message: 'Authentication failed.',
+                            },
+                        });
+                    }
                 }
+            } catch (error) {
+                console.log('error ===>', error);
             }
         }
     } else {
