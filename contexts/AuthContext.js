@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { recoverUserInfo, signInRequest } from '../../services/auth.service';
+import { recoverUserInfo, signInRequest } from '../services/auth.service';
 import { setCookie, parseCookies } from 'nookies';
 import Router from 'next/router';
 

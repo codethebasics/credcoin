@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '/styles/layout/home/Transactions.module.scss';
 import Card from '../../cards/Card';
+import Router from 'next/router';
 
 export default function Transaction(props) {
     const [transactions, setTransactions] = useState([
@@ -34,7 +35,7 @@ export default function Transaction(props) {
     ]);
 
     const listTransactions = async () => {
-        alert('listing transactions...');
+        Router.push('/extrato');
     };
 
     const viewTransaction = async () => {
@@ -60,10 +61,11 @@ export default function Transaction(props) {
                     <table>
                         <thead>
                             <tr>
-                                <th>ATIVO</th>
+                                <th>DATA/HORA</th>
                                 <th>TIPO</th>
+                                <th>ATIVO</th>
                                 <th>QUANTIDADE</th>
-                                <th>DATA</th>
+                                <th>ID CRD</th>
                                 <th>STATUS</th>
                                 <th></th>
                             </tr>
@@ -71,10 +73,11 @@ export default function Transaction(props) {
                         <tbody>
                             {transactions.map((transaction) => (
                                 <tr key={transaction.id}>
-                                    <td>{transaction.ativo}</td>
-                                    <td>{transaction.tipo}</td>
-                                    <td>{transaction.quantidade}</td>
                                     <td>{transaction.data}</td>
+                                    <td>{transaction.tipo}</td>
+                                    <td>{transaction.ativo}</td>
+                                    <td>{transaction.quantidade}</td>
+                                    <td>#{transaction.id}</td>
                                     <td>
                                         <span
                                             className={

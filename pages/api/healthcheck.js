@@ -1,6 +1,6 @@
 /**
  * =====================
- * API Proxy healthcheck
+ * API Proxy Healthcheck
  * =====================
  * @author codethebasics by DuckTech
  */

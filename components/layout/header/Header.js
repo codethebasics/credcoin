@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthContext';
 import styles from '../../../styles/components/Header.module.scss';
 
 export default function Header(props) {
+    const { user } = useContext(AuthContext);
+
     return (
         <div id={styles.header}>
             <div className={styles.mobileHeaderLogo}>

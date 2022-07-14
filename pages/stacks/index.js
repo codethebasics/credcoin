@@ -1,9 +1,12 @@
 import styles from '../../styles/pages/Stacks.module.scss';
 import { BalanceCard } from '../../components/cards';
 import Card from '/components/cards/Card';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Stacks(props) {
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
     }, []);
@@ -39,7 +42,7 @@ export default function Stacks(props) {
                 />
             </div>
             <div className={styles.formContainer}>
-                <Card background={'#D6A84C'} color={'#FFFFFF'} padding={'15px'}>
+                <Card background={'#04042D'} color={'#FFFFFF'} padding={'15px'}>
                     <div className={styles.header}>
                         <div className={styles.logo}>
                             <img height={35} src="/img/white-cart.svg" />

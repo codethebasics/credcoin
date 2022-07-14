@@ -4,9 +4,12 @@ import Transactions from '../../components/layout/Home/Transactions';
 import BuyStacks from '../../components/layout/Home/BuyStacks';
 import WhitepaperCRD from '../../components/layout/Home/WhitepaperCRD';
 import WithdrawCRD from '../../components/layout/Home/WithdrawCRD';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Home(props) {
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
         props.setPaths(['Home']);
     }, []);

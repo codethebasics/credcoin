@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useContext, useEffect } from 'react';
-import { AuthContext } from '../../../src/contexts/AuthContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import styles from '../../../styles/components/Sidebar.module.scss';
 
 export default function Sidebar(props) {

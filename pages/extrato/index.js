@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { BalanceCard } from '../../components/cards';
 import Card from '../../components/cards/Card';
 import Transaction from '../../components/layout/Home/Transactions';
+import { AuthContext } from '../../contexts/AuthContext';
 import styles from '../../styles/pages/Extrato.module.scss';
 
 export default function Extrato(props) {
+    const { user } = useContext(AuthContext);
+
     useEffect(() => {
         props.setPaths(['Home', 'Extrato']);
     }, []);

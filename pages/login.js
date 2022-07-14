@@ -2,7 +2,7 @@ import styles from '/styles/pages/Login.module.scss';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
-import { AuthContext } from '../src/contexts/AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 /**
  * =====

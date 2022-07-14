@@ -3,8 +3,8 @@ import Header from '../components/layout/header/Header.js';
 import Sidebar from '../components/layout/menu/Sidebar';
 import SidebarShort from '../components/layout/menu/SidebarShort';
 import SidebarBottom from '../components/layout/menu/SidebarBottom';
-import { useEffect, useState } from 'react';
-import { AuthProvider } from '../src/contexts/AuthContext';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext, AuthProvider } from '../contexts/AuthContext';
 
 /**
  * ===============

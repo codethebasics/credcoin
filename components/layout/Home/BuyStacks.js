@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from '/styles/layout/home/BuyStacks.module.scss';
 import Card from '../../cards/Card';
+import Router from 'next/router';
 
 export default function BuyStacks(props) {
     const [previewInput, setPreviewInput] = useState(0);
@@ -15,7 +16,8 @@ export default function BuyStacks(props) {
     };
 
     const comprarStacks = async () => {
-        alert('Comprar STACKS: ' + previewValue);
+        // alert('Comprar STACKS: ' + previewValue);
+        Router.push('/stacks');
     };
 
     return (
