@@ -6,11 +6,15 @@ import WhitepaperCRD from '../../components/layout/Home/WhitepaperCRD';
 import WithdrawCRD from '../../components/layout/Home/WithdrawCRD';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import Router from 'next/router';
 
 export default function Home(props) {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
+        if (!user) {
+            Router.push('/login');
+        }
         props.setPaths(['Home']);
     }, []);
     return (

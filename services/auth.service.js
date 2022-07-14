@@ -1,6 +1,8 @@
 import { v4 as uuid } from 'uuid';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
+import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event';
+import $ from 'jquery';
 
 /**
  * ====================================
@@ -20,31 +22,87 @@ const delay = (amount = 1000) =>
  */
 export async function signInRequest(data) {
     const { username, password } = data;
+
+    // const loginFormData = new FormData();
+    // loginFormData.append('action', 'getDataUser');
+    // loginFormData.append('chave_key', 'API_KEY-c21hcnRkdWNrdGVjaA==');
+    // loginFormData.append('email', 'yuri13royer@gmail.com');
+    // loginFormData.append('password', '123');
+
+    // fetch('https://crddao.io/api/ws.0.0.1', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         action: 'getDataUser',
+    //         chave_key: 'API_KEY-c21hcnRkdWNrdGVjaA==',
+    //         email: 'yuri13royer@gmail.com',
+    //         password: '123',
+    //     }),
+    // })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log('Success:', data);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
+
+    // const response = await axios.post('https://crddao.io/api/ws.0.0.1', {
+    //     method: 'POST',
+    //     data: loginFormData,
+    //     headers: {
+    //         'Content-Type': 'multipart/form-data',
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Content-Type': 'application/json',
+    //     },
+    // });
+
+    const response = await $.ajax({
+        url: 'https://crddao.io/api/ws.0.0.1',
+        type: 'post',
+        dataType: 'html',
+        data: {
+            action: 'getDataUser',
+            chave_key: 'API_KEY-c21hcnRkdWNrdGVjaA==',
+            email: username,
+            password: password,
+        },
+    });
+
+    const jsonResponse = JSON.parse(response);
+    const user = jsonResponse.data[0];
+
     const KEY = uuid();
-    const t = jwt.sign(
+    const jsonToken = jwt.sign(
         {
-            username,
-            admin: true,
+            name: user.name,
+            email: user.email,
+            level_id: user.level_id,
+            document_user: user.document_user,
+            uf: user.uf,
+            city: user.city,
+            ip_conect: user.ip_conect,
         },
         KEY
     );
 
-    const users = await axios.get(
-        'https://62cf4fe3826a88972d0baac0.mockapi.io/api/v1/users'
-    );
-
-    const user = users.data.filter((user) => user.username === username);
-
-    console.log('logger user', user[0]);
-
-    return {
-        token: t,
-        user: {
-            id: user[0].id,
-            name: user[0].username,
-            email: user[0].username,
-        },
-    };
+    if (user) {
+        return {
+            token: jsonToken,
+            user: {
+                id: user.id,
+                level_id: user.level_id,
+                registration_date: user.registration_date,
+                document_type_id: user.document_type_id,
+                name: user.name,
+                email: user.email,
+                uf: user.uf,
+                city: user.city,
+            },
+        };
+    }
 }
 
 /**
@@ -53,7 +111,6 @@ export async function signInRequest(data) {
  * -------------------------------------
  */
 export async function recoverUserInfo(token) {
-    await delay();
     return {
         token: uuid(),
         user: {

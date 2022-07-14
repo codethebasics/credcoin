@@ -6,6 +6,10 @@ import styles from '../../../styles/components/Sidebar.module.scss';
 export default function Sidebar(props) {
     const { user } = useContext(AuthContext);
 
+    useEffect(() => {
+        console.log('user =>>>', user);
+    }, []);
+
     return (
         <div id={styles.sidebar}>
             <div>
