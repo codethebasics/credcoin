@@ -4,10 +4,20 @@ import Card from '/components/cards/Card';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { BuyContext } from '../../contexts/BuyContext';
+import { postTransaction } from '../../services/transaction.service';
 
 export default function Stacks(props) {
     const { user } = useContext(AuthContext);
+
     const [buyExtraValue, setBuyExtraValue] = useState(0);
+    const [qrCode, setQrCode] = useState('');
+    const [pixCopiaCola, setPixCopiaCola] = useState('');
+    const [qrCodeValor, setQrCodeValor] = useState('');
+    const [qrCodeCriacao, setQrCodeCriacao] = useState('');
+    const [qrCodeExpiracao, setQrCodeExpiracao] = useState(0);
+    const [qrCodeChave, setQrCodeChave] = useState('');
+    const [qrCodeStatus, setQrCodeStatus] = useState('');
+
     const { buyValue, setBuyValue } = useContext(BuyContext);
 
     useEffect(() => {
@@ -15,18 +25,87 @@ export default function Stacks(props) {
         setBuyExtraValue(parseFloat(buyValue) + buyValue * 0.3);
     }, []);
 
-    const comprarStacks = () => {
-        alert('comprar stacks');
-        // FRONTEND
-        // chamar API de gerar transação passando o valor do PIX a ser feito com o ID da transação
-        // API <== response QRCode base64 (presente no JSON)
-        // Apresentar na tela o resumo da transação
-        // Apresentar o QRCode para ser scaneado
-        // Input com chave para copiar
-        // BACKEND
-        // Cadastrar pagamento na tabela
-        // PIX => Gerencianet
-        // Weebhook => CRD.. espera que eu te aviso quando cair... me passa o endpoint pra te notificar...
+    const comprarStacks = async () => {
+        const qrCodeData = await postTransaction(
+            JSON.parse(`{"user_id": 1,"amount": "100.00"}`)
+        );
+        console.log(qrCodeData);
+        setQrCode(qrCodeData.response.api.data.qr_code);
+        setPixCopiaCola(qrCodeData.response.api.data.copia_e_cola);
+        setQrCodeValor(qrCodeData.response.api.data.pix.valor.original);
+        setQrCodeCriacao(qrCodeData.response.api.data.pix.calendario.criacao);
+        setQrCodeExpiracao(
+            qrCodeData.response.api.data.pix.calendario.expiracao
+        );
+        setQrCodeChave(qrCodeData.response.api.data.pix.chave);
+        setQrCodeStatus(qrCodeData.response.api.data.pix.status);
+    };
+
+    const copiarChavePix = async () => {
+        navigator.clipboard.writeText(pixCopiaCola);
+    };
+
+    const displayQRCode = () => {
+        if (qrCode) {
+            return (
+                <div className={styles.qrCode}>
+                    <div className={styles.container}>
+                        <div className={styles.header}>
+                            <div></div>
+                            <div>
+                                <img
+                                    height={15}
+                                    src="/img/times-black.svg"
+                                    onClick={() => setQrCode(undefined)}
+                                />
+                            </div>
+                        </div>
+                        <div className={styles.body}>
+                            <div>
+                                <div className={styles.logo}>
+                                    <img src="/img/logo-gold.svg" />
+                                </div>
+                                <div className={styles.headerLabel}>
+                                    <span>
+                                        Leia o QRCode pelo seu aplicativo
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <img src={qrCode} />
+                            </div>
+                            <div>
+                                <span>
+                                    Para usar o "Pix Copia e Cola" copie o
+                                    código e cole para completar a transação.
+                                </span>
+                            </div>
+                            <div>
+                                <div>
+                                    <label>Valor da compra:</label>
+                                </div>
+                                <div>
+                                    <label>R$ {qrCodeValor}</label>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <label>QRCode expira em:</label>
+                                </div>
+                                <div>
+                                    <label>{qrCodeExpiracao / 60} min</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.footer}>
+                            <div onClick={copiarChavePix}>
+                                <label>Copia e cola pix</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
     };
 
     return (
@@ -234,6 +313,7 @@ export default function Stacks(props) {
                         </div>
                     </div>
                 </Card>
+                {displayQRCode()}
             </div>
         </div>
     );
