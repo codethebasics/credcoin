@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from 'react';
 export const BuyContext = createContext({});
 
 export function BuyProvider({ children }) {
-    const [buyValue, setBuyValue] = useState(0);
+    const [buyValue, setBuyValue] = useState(100);
 
     useEffect(() => {}, []);
 

@@ -15,7 +15,6 @@ export default async function transactionHandler(req, res) {
             body: form,
         }).then((response) => response.json());
 
-        console.log('Transaction Proxy API => GET');
         res.status(200).json({
             response: {
                 transactionList: transactionList.data,
@@ -72,7 +71,6 @@ async function handleGET(req, res) {
         console.log('error ===>', error);
     }
 
-    console.log('Transaction Proxy API => GET');
     res.status(200).json({
         response: {
             message: 'GET',
@@ -101,7 +99,6 @@ async function handlePOST(req, res) {
             body: form,
         });
 
-        console.log('Transaction Proxy API => GET');
         res.status(200).json({
             response: {
                 response: response,
@@ -122,7 +119,6 @@ async function handlePOST(req, res) {
  * ---
  */
 function handlePUT(req, res) {
-    console.log('Transaction Proxy API => PUT');
     res.status(200).json({
         response: {
             message: 'PUT',
@@ -136,7 +132,6 @@ function handlePUT(req, res) {
  * ------
  */
 function handleDELETE(req, res) {
-    console.log('Transaction Proxy API => DELETE');
     res.status(200).json({
         response: {
             message: 'DELETE',

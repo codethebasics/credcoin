@@ -1,18 +1,18 @@
 import styles from '../../styles/pages/Stacks.module.scss';
 import { BalanceCard } from '../../components/cards';
 import Card from '/components/cards/Card';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { BuyContext } from '../../contexts/BuyContext';
 
 export default function Stacks(props) {
     const { user } = useContext(AuthContext);
-
+    const [buyExtraValue, setBuyExtraValue] = useState(0);
     const { buyValue, setBuyValue } = useContext(BuyContext);
 
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
-        console.log('stacks');
+        setBuyExtraValue(parseFloat(buyValue) + buyValue * 0.3);
     }, []);
 
     const comprarStacks = () => {
@@ -105,6 +105,7 @@ export default function Stacks(props) {
                                             <div className={styles.inputValue}>
                                                 <span>R$</span>
                                                 <input
+                                                    disabled
                                                     type="number"
                                                     min="0"
                                                     step=".1"
@@ -136,11 +137,23 @@ export default function Stacks(props) {
                                                 className={styles.discountLabel}
                                             >
                                                 <div>
-                                                    <span>100</span>
+                                                    <span>
+                                                        {Math.trunc(
+                                                            Math.round(
+                                                                buyValue
+                                                            ) / 0.0006738
+                                                        )}
+                                                    </span>
                                                     <span>STK</span>
                                                 </div>
                                                 <div>
-                                                    <span>130</span>
+                                                    <span>
+                                                        {Math.trunc(
+                                                            Math.round(
+                                                                buyExtraValue
+                                                            ) / 0.0006738
+                                                        )}
+                                                    </span>
                                                     <span>STK</span>
                                                 </div>
                                             </div>
@@ -164,7 +177,7 @@ export default function Stacks(props) {
                                             src="/img/gold-info.svg"
                                         />
                                         <span>
-                                            Valor mínimo de compra R$ 1000,00
+                                            Valor mínimo de compra R$ 100,00
                                         </span>
                                     </div>
                                 </div>

@@ -5,8 +5,10 @@ import Router from 'next/router';
 import { BuyContext } from '../../../contexts/BuyContext';
 
 export default function BuyStacks(props) {
+    //0.0006738
     const [previewInput, setPreviewInput] = useState(0);
     const [previewValue, setPreviewValue] = useState(0);
+    const [bonus, setBonus] = useState(0.3);
 
     const { buyValue, setBuyValue } = useContext(BuyContext);
 
@@ -16,8 +18,7 @@ export default function BuyStacks(props) {
         const value = event.target.value;
         if (!isNaN(value)) {
             setPreviewInput(value);
-            setPreviewValue(Math.round(value * 10) / 100);
-            setBuyValue(value);
+            setPreviewValue(Math.round(buyValue) / 0.0006738);
         }
     };
 
@@ -45,15 +46,15 @@ export default function BuyStacks(props) {
                         <span>R$</span>
                         <input
                             type="number"
-                            step=".1"
-                            min="0"
+                            step="1"
+                            min="100"
                             value={buyValue}
                             onChange={(e) => setBuyValue(e.target.value)}
                         />
                     </div>
                     <div className={styles.outputQuantity}>
                         {' '}
-                        = {previewValue} STK
+                        = {Math.trunc(Math.round(buyValue) / 0.0006738)} STK
                     </div>
                 </div>
                 <div className={styles.info}>
