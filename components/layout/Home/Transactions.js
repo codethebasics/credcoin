@@ -11,7 +11,9 @@ import {
 
 export default function Transaction(props) {
     useEffect(() => {
-        getTransaction();
+        getTransaction(1)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
     }, []);
 
     const [transactions, setTransactions] = useState([

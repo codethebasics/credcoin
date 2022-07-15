@@ -11,16 +11,23 @@ const TRANSACTION_URI = 'http://localhost:3000/api/transaction';
  * GET
  * ---
  */
-async function getTransaction() {
+async function getTransaction(userId) {
     console.log('Transaction Service => GET');
 
     const transactionList = await fetch(TRANSACTION_URI, {
-        method: 'GET',
+        method: 'POST',
         headers: {
             Accepts: 'application/json',
             'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+            user_id: userId,
+        }),
     }).then((response) => response.json());
+
+    console.log('------------------');
+    console.log(transactionList);
+    console.log('------------------');
 
     return transactionList.response;
 }

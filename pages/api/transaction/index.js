@@ -1,22 +1,50 @@
-export default function transactionHandler(req, res) {
-    switch (req.method) {
-        case 'GET':
-            handleGET(req, res);
-            break;
-        case 'POST':
-            handlePOST(req, res);
-            break;
-        case 'PUT':
-            handlePUT(req, res);
-            break;
-        case 'DELETE':
-            handleDELETE(req, res);
-            break;
-        default:
-            res.status(400).json({
-                response: { message: 'method not allowed' },
-            });
+const FormData = require('form-data');
+
+export default async function transactionHandler(req, res) {
+    const form = new FormData();
+    form.append('action', 'getTransactionsUser');
+    form.append('chave_key', process.env.API_KEY);
+    form.append('user_id', req.body.user_id);
+
+    try {
+        const transactionList = await fetch(process.env.CRD_API, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'default',
+            body: form,
+        }).then((response) => response.json());
+
+        console.log('Transaction Proxy API => GET');
+        res.status(200).json({
+            response: {
+                transactionList: transactionList.data,
+            },
+        });
+    } catch (error) {
+        res.status(200).json({
+            response: {
+                message: error,
+            },
+        });
     }
+    // switch (req.method) {
+    //     case 'GET':
+    //         handleGET(req, res);
+    //         break;
+    //     case 'POST':
+    //         handlePOST(req, res);
+    //         break;
+    //     case 'PUT':
+    //         handlePUT(req, res);
+    //         break;
+    //     case 'DELETE':
+    //         handleDELETE(req, res);
+    //         break;
+    //     default:
+    //         res.status(400).json({
+    //             response: { message: 'method not allowed' },
+    //         });
+    // }
 }
 
 /**
@@ -24,7 +52,25 @@ export default function transactionHandler(req, res) {
  * GET
  * ---
  */
-function handleGET(req, res) {
+async function handleGET(req, res) {
+    const form = new FormData();
+    form.append('action', 'getTransactionsUser');
+    form.append('chave_key', process.env.API_KEY);
+    form.append('user_id', req.user_id);
+
+    try {
+        const response = await fetch(process.env.CRD_API, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'default',
+            body: form,
+        });
+
+        console.log('handleGet', response);
+    } catch (error) {
+        console.log('error ===>', error);
+    }
+
     console.log('Transaction Proxy API => GET');
     res.status(200).json({
         response: {
@@ -38,13 +84,35 @@ function handleGET(req, res) {
  * POST
  * ----
  */
-function handlePOST(req, res) {
-    console.log('Transaction Proxy API => POST');
-    res.status(200).json({
-        response: {
-            message: 'POST',
-        },
-    });
+async function handlePOST(req, res) {
+    const form = new FormData();
+    form.append('action', 'getTransactionsUser');
+    form.append('chave_key', process.env.API_KEY);
+    form.append('user_id', req.user_id);
+
+    console.log('handlePOST');
+
+    try {
+        const response = await fetch(process.env.CRD_API, {
+            method: 'POST',
+            mode: 'cors',
+            cache: 'default',
+            body: form,
+        });
+
+        console.log('Transaction Proxy API => GET');
+        res.status(200).json({
+            response: {
+                response: response,
+            },
+        });
+    } catch (error) {
+        res.status(200).json({
+            response: {
+                message: error,
+            },
+        });
+    }
 }
 
 /**
