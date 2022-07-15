@@ -12,38 +12,38 @@ import {
 export default function Transaction(props) {
     useEffect(() => {
         getTransaction(1)
-            .then((response) => console.log(response))
+            .then((response) => setTransactions(response.transactionList))
             .catch((error) => console.log(error));
     }, []);
 
     const [transactions, setTransactions] = useState([
-        {
-            id: 1,
-            ativo: 'STK',
-            tipo: 'DIVIDENDOS',
-            quantidade: 50,
-            data: '22/06/2022',
-            status: 'EM ANÁLISE',
-            class: 'warningLabel',
-        },
-        {
-            id: 2,
-            ativo: 'STK',
-            tipo: 'SAQUE',
-            quantidade: 50,
-            data: '22/06/2022',
-            status: 'CANCELADO',
-            class: 'dangerLabel',
-        },
-        {
-            id: 3,
-            ativo: 'STK',
-            tipo: 'COMPRA',
-            quantidade: 50,
-            data: '22/06/2022',
-            status: 'CONCLUÍDA',
-            class: 'successLabel',
-        },
+        // {
+        //     id: 1,
+        //     ativo: 'STK',
+        //     tipo: 'DIVIDENDOS',
+        //     quantidade: 50,
+        //     data: '22/06/2022',
+        //     status: 'EM ANÁLISE',
+        //     class: 'warningLabel',
+        // },
+        // {
+        //     id: 2,
+        //     ativo: 'STK',
+        //     tipo: 'SAQUE',
+        //     quantidade: 50,
+        //     data: '22/06/2022',
+        //     status: 'CANCELADO',
+        //     class: 'dangerLabel',
+        // },
+        // {
+        //     id: 3,
+        //     ativo: 'STK',
+        //     tipo: 'COMPRA',
+        //     quantidade: 50,
+        //     data: '22/06/2022',
+        //     status: 'CONCLUÍDA',
+        //     class: 'successLabel',
+        // },
     ]);
 
     const listTransactions = async () => {
@@ -85,10 +85,10 @@ export default function Transaction(props) {
                         <tbody>
                             {transactions.map((transaction) => (
                                 <tr key={transaction.id}>
-                                    <td>{transaction.data}</td>
-                                    <td>{transaction.tipo}</td>
-                                    <td>{transaction.ativo}</td>
-                                    <td>{transaction.quantidade}</td>
+                                    <td>{transaction.transaction_date}</td>
+                                    <td>{transaction.type_transaction_id}</td>
+                                    <td>{transaction.qtd_active}</td>
+                                    <td>{transaction.amount}</td>
                                     <td>#{transaction.id}</td>
                                     <td>
                                         <span
@@ -96,7 +96,9 @@ export default function Transaction(props) {
                                                 styles[transaction.class]
                                             }
                                         >
-                                            {transaction.status}
+                                            {
+                                                transaction.status_transaction_type_id
+                                            }
                                         </span>
                                     </td>
                                     <td>

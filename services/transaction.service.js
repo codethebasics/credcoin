@@ -25,10 +25,6 @@ async function getTransaction(userId) {
         }),
     }).then((response) => response.json());
 
-    console.log('------------------');
-    console.log(transactionList);
-    console.log('------------------');
-
     return transactionList.response;
 }
 
