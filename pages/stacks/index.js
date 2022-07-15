@@ -9,6 +9,7 @@ export default function Stacks(props) {
 
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
+        console.log('stacks');
     }, []);
 
     const comprarStacks = () => {

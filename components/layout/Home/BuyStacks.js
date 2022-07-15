@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import styles from '/styles/layout/home/BuyStacks.module.scss';
 import Card from '../../cards/Card';
 import Router from 'next/router';
+import { BuyContext } from '../../../contexts/BuyContext';
 
 export default function BuyStacks(props) {
     const [previewInput, setPreviewInput] = useState(0);
     const [previewValue, setPreviewValue] = useState(0);
+
+    const { buyValue } = useContext(BuyContext);
+
+    useEffect(() => {}, []);
 
     const onPreviewInputChange = (event) => {
         const value = event.target.value;

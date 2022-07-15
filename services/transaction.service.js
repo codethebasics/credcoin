@@ -22,6 +22,7 @@ async function getTransaction(userId) {
         },
         body: JSON.stringify({
             user_id: userId,
+            limit: 10,
         }),
     }).then((response) => response.json());
 

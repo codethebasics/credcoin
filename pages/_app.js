@@ -3,8 +3,9 @@ import Header from '../components/layout/header/Header.js';
 import Sidebar from '../components/layout/menu/Sidebar';
 import SidebarShort from '../components/layout/menu/SidebarShort';
 import SidebarBottom from '../components/layout/menu/SidebarBottom';
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext, AuthProvider } from '../contexts/AuthContext';
+import { useEffect, useState } from 'react';
+import { AuthProvider } from '../contexts/AuthContext';
+import { BuyProvider } from '../contexts/BuyContext';
 
 /**
  * ===============
@@ -73,7 +74,9 @@ function App({ Component, pageProps: { session, ...pageProps } }) {
                     <Header paths={paths} />
                 </div>
                 <div id="bodyContainer">
-                    <Component setPaths={setPaths} {...pageProps} />
+                    <BuyProvider>
+                        <Component setPaths={setPaths} {...pageProps} />
+                    </BuyProvider>
                 </div>
             </div>
         </AuthProvider>

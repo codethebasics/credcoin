@@ -5,6 +5,7 @@ export default async function transactionHandler(req, res) {
     form.append('action', 'getTransactionsUser');
     form.append('chave_key', process.env.API_KEY);
     form.append('user_id', req.body.user_id);
+    form.append('limit', req.body.limit);
 
     try {
         const transactionList = await fetch(process.env.CRD_API, {

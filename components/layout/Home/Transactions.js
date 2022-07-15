@@ -83,7 +83,7 @@ export default function Transaction(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {transactions.map((transaction) => (
+                            {transactions?.map((transaction) => (
                                 <tr key={transaction.id}>
                                     <td>{transaction.transaction_date}</td>
                                     <td>{transaction.type_transaction_id}</td>

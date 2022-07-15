@@ -1,12 +1,12 @@
-import { BalanceCard } from '../../components/cards';
 import styles from '../../styles/pages/Home.module.scss';
 import Transactions from '../../components/layout/Home/Transactions';
 import BuyStacks from '../../components/layout/Home/BuyStacks';
 import WhitepaperCRD from '../../components/layout/Home/WhitepaperCRD';
 import WithdrawCRD from '../../components/layout/Home/WithdrawCRD';
+import Router from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import Router from 'next/router';
+import { BalanceCard } from '../../components/cards';
 
 export default function Home(props) {
     const { user } = useContext(AuthContext);
