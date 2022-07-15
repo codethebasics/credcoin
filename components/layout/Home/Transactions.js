@@ -2,8 +2,18 @@ import { useEffect, useState } from 'react';
 import styles from '/styles/layout/home/Transactions.module.scss';
 import Card from '../../cards/Card';
 import Router from 'next/router';
+import {
+    getTransaction,
+    postTransaction,
+    putgetTransaction,
+    deleteTransaction,
+} from '../../../services/transaction.service';
 
 export default function Transaction(props) {
+    useEffect(() => {
+        getTransaction();
+    }, []);
+
     const [transactions, setTransactions] = useState([
         {
             id: 1,

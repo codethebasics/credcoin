@@ -10,6 +10,21 @@ export default function Stacks(props) {
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
     }, []);
+
+    const comprarStacks = () => {
+        alert('comprar stacks');
+        // FRONTEND
+        // chamar API de gerar transação passando o valor do PIX a ser feito com o ID da transação
+        // API <== response QRCode base64 (presente no JSON)
+        // Apresentar na tela o resumo da transação
+        // Apresentar o QRCode para ser scaneado
+        // Input com chave para copiar
+        // BACKEND
+        // Cadastrar pagamento na tabela
+        // PIX => Gerencianet
+        // Weebhook => CRD.. espera que eu te aviso quando cair... me passa o endpoint pra te notificar...
+    };
+
     return (
         <div className={styles.stacksContainer}>
             <div className={styles.header}>Escritório Virtual</div>
@@ -174,7 +189,9 @@ export default function Stacks(props) {
                                     </p>
                                 </div>
                                 <div className={styles.cta}>
-                                    <button>Efetuar Pagamento</button>
+                                    <button onClick={comprarStacks}>
+                                        Efetuar Pagamento
+                                    </button>
                                 </div>
                                 <div className={styles.info}>
                                     <div>
