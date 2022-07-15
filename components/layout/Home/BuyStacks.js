@@ -8,7 +8,7 @@ export default function BuyStacks(props) {
     const [previewInput, setPreviewInput] = useState(0);
     const [previewValue, setPreviewValue] = useState(0);
 
-    const { buyValue } = useContext(BuyContext);
+    const { buyValue, setBuyValue } = useContext(BuyContext);
 
     useEffect(() => {}, []);
 
@@ -17,6 +17,7 @@ export default function BuyStacks(props) {
         if (!isNaN(value)) {
             setPreviewInput(value);
             setPreviewValue(Math.round(value * 10) / 100);
+            setBuyValue(value);
         }
     };
 
@@ -46,8 +47,8 @@ export default function BuyStacks(props) {
                             type="number"
                             step=".1"
                             min="0"
-                            value={previewInput}
-                            onChange={onPreviewInputChange}
+                            value={buyValue}
+                            onChange={(e) => setBuyValue(e.target.value)}
                         />
                     </div>
                     <div className={styles.outputQuantity}>

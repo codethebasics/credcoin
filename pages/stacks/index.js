@@ -3,9 +3,12 @@ import { BalanceCard } from '../../components/cards';
 import Card from '/components/cards/Card';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { BuyContext } from '../../contexts/BuyContext';
 
 export default function Stacks(props) {
     const { user } = useContext(AuthContext);
+
+    const { buyValue, setBuyValue } = useContext(BuyContext);
 
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
@@ -105,6 +108,12 @@ export default function Stacks(props) {
                                                     type="number"
                                                     min="0"
                                                     step=".1"
+                                                    value={buyValue}
+                                                    onChange={(e) =>
+                                                        setBuyValue(
+                                                            e.target.value
+                                                        )
+                                                    }
                                                 />
                                             </div>
                                         </div>

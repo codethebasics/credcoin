@@ -8,8 +8,7 @@ export function BuyProvider({ children }) {
     useEffect(() => {}, []);
 
     return (
-        <BuyContext.Provider value={{ buyValue }}>
-            <div>{buyValue}</div>
+        <BuyContext.Provider value={{ buyValue, setBuyValue }}>
             {children}
         </BuyContext.Provider>
     );
