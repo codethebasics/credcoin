@@ -4,7 +4,7 @@
  * -------------------
  * @author codethebasics by DuckTech
  */
-const TRANSACTION_URI = 'http://localhost:3000/api/transaction';
+const TRANSACTION_URI = process.env.NEXT_PUBLIC_CRD_PROXY_API_TRANSACTION;
 
 /**
  * ---

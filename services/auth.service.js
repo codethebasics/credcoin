@@ -23,7 +23,7 @@ const delay = (amount = 1000) =>
 export async function signInRequest(data) {
     const { username, password } = data;
 
-    const user = await fetch('http://localhost:3000/api/auth', {
+    const user = await fetch(process.env.NEXT_PUBLIC_CRD_PROXY_API_AUTH, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
