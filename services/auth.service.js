@@ -44,12 +44,15 @@ export async function signInRequest(data) {
  * -------------------------------------
  */
 export async function recoverUserInfo(token) {
+    const decoded = jwt.decode(token);
     return {
-        token: uuid(),
+        token: decoded,
         user: {
-            id: '00087',
-            name: 'Yuri Royer',
-            email: 'yuriroyer@gmail.com',
+            id: parseInt(decoded.id),
+            name: decoded.name,
+            email: decoded.name,
+            level_id: decoded.level_id,
+            document_user: decoded.document_user,
         },
     };
 }

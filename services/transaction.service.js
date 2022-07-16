@@ -35,12 +35,10 @@ async function getTransaction(userId) {
  * ----
  */
 async function postTransaction(transaction) {
-    console.log('Transaction Service => POST');
-
     transaction.action = 'addNewTransaction';
-
-    console.log('transaction', transaction);
-
+    console.log('---------------------');
+    console.log(transaction);
+    console.log('---------------------');
     const savedTransaction = await fetch(TRANSACTION_URI + '/new', {
         method: 'POST',
         body: JSON.stringify(transaction),

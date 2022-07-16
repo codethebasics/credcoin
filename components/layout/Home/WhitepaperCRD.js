@@ -4,7 +4,7 @@ import Card from '../../cards/Card';
 
 export default function WhitepaperCRD(props) {
     const baixarWhitepaper = async () => {
-        alert('Baixar Whitepaper');
+        window.open('https://crddao.io/whitepapper/', '_blank');
     };
 
     return (

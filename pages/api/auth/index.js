@@ -36,6 +36,7 @@ export default async function authenticationHandler(req, res) {
                     if (user) {
                         const token = jwt.sign(
                             {
+                                id: user.id,
                                 name: user.name,
                                 email: user.email,
                                 level_id: user.level_id,

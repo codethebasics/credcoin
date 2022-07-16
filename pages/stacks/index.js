@@ -9,6 +9,7 @@ import { postTransaction } from '../../services/transaction.service';
 export default function Stacks(props) {
     const { user } = useContext(AuthContext);
 
+    const { buyValue, setBuyValue } = useContext(BuyContext);
     const [buyExtraValue, setBuyExtraValue] = useState(0);
     const [qrCode, setQrCode] = useState('');
     const [pixCopiaCola, setPixCopiaCola] = useState('');
@@ -18,8 +19,6 @@ export default function Stacks(props) {
     const [qrCodeChave, setQrCodeChave] = useState('');
     const [qrCodeStatus, setQrCodeStatus] = useState('');
 
-    const { buyValue, setBuyValue } = useContext(BuyContext);
-
     useEffect(() => {
         props.setPaths(['Home', 'Stacks']);
         setBuyExtraValue(parseFloat(buyValue) + buyValue * 0.3);
@@ -27,7 +26,11 @@ export default function Stacks(props) {
 
     const comprarStacks = async () => {
         const qrCodeData = await postTransaction(
-            JSON.parse(`{"user_id": 1,"amount": "100.00"}`)
+            {
+                user_id: parseInt(user.id),
+                amount: buyExtraValue.toFixed(2),
+            }
+            // JSON.parse(`{"user_id": 1,"amount": "100.00"}`)
         );
         console.log(qrCodeData);
         setQrCode(qrCodeData.response.api.data.qr_code);

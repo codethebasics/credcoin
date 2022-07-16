@@ -86,8 +86,8 @@ export default function Transaction(props) {
                             {transactions?.map((transaction) => (
                                 <tr key={transaction.id}>
                                     <td>{transaction.transaction_date}</td>
-                                    <td>{transaction.type_transaction_id}</td>
-                                    <td>{transaction.qtd_active}</td>
+                                    <td>{transaction.type_transaction}</td>
+                                    <td>{transaction.name_active}</td>
                                     <td>{transaction.amount}</td>
                                     <td>#{transaction.id}</td>
                                     <td>
@@ -96,9 +96,7 @@ export default function Transaction(props) {
                                                 styles[transaction.class]
                                             }
                                         >
-                                            {
-                                                transaction.status_transaction_type_id
-                                            }
+                                            {transaction.status_transaction}
                                         </span>
                                     </td>
                                     <td>
