@@ -1,14 +1,18 @@
-import { useEffect, useContext } from 'react';
-import { BalanceCard } from '../../components/cards';
+import Router from 'next/router';
 import Card from '../../components/cards/Card';
 import Transaction from '../../components/layout/Home/Transactions';
-import { AuthContext } from '../../contexts/AuthContext';
 import styles from '../../styles/pages/Extrato.module.scss';
+import { useEffect, useContext } from 'react';
+import { BalanceCard } from '../../components/cards';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export default function Extrato(props) {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
+        if (!user) {
+            Router.push('/login');
+        }
         props.setPaths(['Home', 'Extrato']);
     }, []);
 

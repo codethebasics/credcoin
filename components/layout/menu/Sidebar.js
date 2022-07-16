@@ -8,20 +8,9 @@ export default function Sidebar(props) {
 
     useEffect(() => {}, []);
 
-    return (
-        <div id={styles.sidebar}>
-            <div>
-                <div className={styles.brand}>
-                    <div className={styles.logo}>
-                        <img src="/img/logo-gold.svg" />
-                    </div>
-                    <div
-                        className={styles.menu}
-                        onClick={props.toggleExpandMenu}
-                    >
-                        <img src="/img/hamburger-gold.svg" />
-                    </div>
-                </div>
+    const userLoggedInMenu = () => {
+        return (
+            <>
                 <div className={styles.userData}>
                     <div>
                         <div>
@@ -58,7 +47,7 @@ export default function Sidebar(props) {
                                 <a>Stacks</a>
                             </li>
                         </Link>
-                        <Link href="/login">
+                        <Link href="/logout">
                             <li>
                                 <img src="/img/signout-gold.svg" height={20} />
                                 <a>Sair</a>
@@ -66,6 +55,42 @@ export default function Sidebar(props) {
                         </Link>
                     </ul>
                 </div>
+            </>
+        );
+    };
+
+    const loginMenu = () => {
+        return (
+            <>
+                <div className={styles.link}>
+                    <ul>
+                        <Link href="/login">
+                            <li>
+                                <img src="/img/signin-gold.svg" height={25} />
+                                <a>Entrar</a>
+                            </li>
+                        </Link>
+                    </ul>
+                </div>
+            </>
+        );
+    };
+
+    return (
+        <div id={styles.sidebar}>
+            <div>
+                <div className={styles.brand}>
+                    <div className={styles.logo}>
+                        <img src="/img/logo-gold.svg" />
+                    </div>
+                    <div
+                        className={styles.menu}
+                        onClick={props.toggleExpandMenu}
+                    >
+                        <img src="/img/hamburger-gold.svg" />
+                    </div>
+                </div>
+                {user ? userLoggedInMenu() : loginMenu()}
             </div>
         </div>
     );

@@ -1,6 +1,7 @@
 import styles from '../../styles/pages/Stacks.module.scss';
-import { BalanceCard } from '../../components/cards';
 import Card from '/components/cards/Card';
+import Router from 'next/router';
+import { BalanceCard } from '../../components/cards';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { BuyContext } from '../../contexts/BuyContext';
@@ -20,18 +21,19 @@ export default function Stacks(props) {
     const [qrCodeStatus, setQrCodeStatus] = useState('');
 
     useEffect(() => {
+        if (!user) {
+            Router.push('/login');
+        }
         props.setPaths(['Home', 'Stacks']);
+        setBuyValue(parseFloat(buyValue));
         setBuyExtraValue(parseFloat(buyValue) + buyValue * 0.3);
     }, []);
 
     const comprarStacks = async () => {
-        const qrCodeData = await postTransaction(
-            {
-                user_id: parseInt(user.id),
-                amount: buyExtraValue.toFixed(2),
-            }
-            // JSON.parse(`{"user_id": 1,"amount": "100.00"}`)
-        );
+        const qrCodeData = await postTransaction({
+            user_id: parseInt(user.id),
+            amount: buyValue.toFixed(2),
+        });
         console.log(qrCodeData);
         setQrCode(qrCodeData.response.api.data.qr_code);
         setPixCopiaCola(qrCodeData.response.api.data.copia_e_cola);

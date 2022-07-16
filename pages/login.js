@@ -17,7 +17,12 @@ export default function Component() {
     useEffect(() => {}, []);
 
     const handleSignIn = async (data) => {
-        await signIn(data);
+        const username = data.username.toString().toLowerCase().trim();
+        const password = data.password.toString().trim();
+        await signIn({
+            username: username,
+            password: password,
+        });
     };
 
     return (
@@ -26,8 +31,12 @@ export default function Component() {
             onSubmit={handleSubmit(handleSignIn)}
         >
             <div className={styles.formControl}>
-                <label htmlFor="inputUsername">Username</label>
-                <input id="inputUsername" {...register('username')} />
+                <label htmlFor="inputUsername">Email</label>
+                <input
+                    type="email"
+                    id="inputUsername"
+                    {...register('username')}
+                />
             </div>
             <div className={styles.formControl}>
                 <label htmlFor="inputPassword">Password</label>

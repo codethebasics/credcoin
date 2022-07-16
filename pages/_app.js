@@ -52,6 +52,8 @@ function App({ Component, pageProps: { session, ...pageProps } }) {
         }
     };
 
+    const renderLoginPage = () => {};
+
     return (
         <AuthProvider>
             <div id="mainContainer">
