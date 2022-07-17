@@ -123,6 +123,24 @@ async function deleteTransaction() {
     return deletedTransaction.response;
 }
 
+/**
+ * -----------------
+ * Verify Pix status
+ * -----------------
+ */
+async function verifyPaymentPix(txid_id) {
+    const pixPayment = await fetch(TRANSACTION_URI + '/pix', {
+        method: 'POST',
+        headers: {
+            Accepts: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ txid_id: txid_id }),
+    }).then((response) => response.json());
+
+    return pixPayment.response.status.data;
+}
+
 export {
     getTransaction,
     postTransaction,
@@ -131,4 +149,5 @@ export {
     getCRDBalance,
     getSTKBalance,
     getBRLBalance,
+    verifyPaymentPix,
 };

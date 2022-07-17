@@ -10,6 +10,7 @@ import {
     getCRDBalance,
     getSTKBalance,
     getBRLBalance,
+    verifyPaymentPix,
 } from '../../services/transaction.service';
 
 export default function Stacks(props) {
@@ -24,6 +25,8 @@ export default function Stacks(props) {
     const [qrCodeExpiracao, setQrCodeExpiracao] = useState(0);
     const [qrCodeChave, setQrCodeChave] = useState('');
     const [qrCodeStatus, setQrCodeStatus] = useState('');
+    const [txid, setTxid] = useState('');
+    const [intervalId, setIntervalId] = useState('');
 
     const [crdBalance, setCrdBalance] = useState(0);
     const [stkBalance, setStkBalance] = useState(0);
@@ -56,8 +59,8 @@ export default function Stacks(props) {
         const qrCodeData = await postTransaction({
             user_id: parseInt(user.id),
             amount: buyValue.toFixed(2),
+            active_id: parseInt(2),
         });
-        console.log(qrCodeData);
         setQrCode(qrCodeData.response.api.data.qr_code);
         setPixCopiaCola(qrCodeData.response.api.data.copia_e_cola);
         setQrCodeValor(qrCodeData.response.api.data.pix.valor.original);
@@ -67,6 +70,17 @@ export default function Stacks(props) {
         );
         setQrCodeChave(qrCodeData.response.api.data.pix.chave);
         setQrCodeStatus(qrCodeData.response.api.data.pix.status);
+        setTxid(qrCodeData.response.api.data.txid);
+
+        const intervalId = setInterval(async () => {
+            let status = await verifyPaymentPix(
+                qrCodeData.response.api.data.txid
+            );
+            console.log(status);
+            if (status === 'CONCLUIDA') {
+                clearInterval(intervalId);
+            }
+        }, 5000);
     };
 
     const copiarChavePix = async () => {

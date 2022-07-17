@@ -16,35 +16,7 @@ export default function Transaction(props) {
             .catch((error) => console.log(error));
     }, []);
 
-    const [transactions, setTransactions] = useState([
-        // {
-        //     id: 1,
-        //     ativo: 'STK',
-        //     tipo: 'DIVIDENDOS',
-        //     quantidade: 50,
-        //     data: '22/06/2022',
-        //     status: 'EM ANÁLISE',
-        //     class: 'warningLabel',
-        // },
-        // {
-        //     id: 2,
-        //     ativo: 'STK',
-        //     tipo: 'SAQUE',
-        //     quantidade: 50,
-        //     data: '22/06/2022',
-        //     status: 'CANCELADO',
-        //     class: 'dangerLabel',
-        // },
-        // {
-        //     id: 3,
-        //     ativo: 'STK',
-        //     tipo: 'COMPRA',
-        //     quantidade: 50,
-        //     data: '22/06/2022',
-        //     status: 'CONCLUÍDA',
-        //     class: 'successLabel',
-        // },
-    ]);
+    const [transactions, setTransactions] = useState([]);
 
     const listTransactions = async () => {
         Router.push('/extrato');
@@ -73,11 +45,10 @@ export default function Transaction(props) {
                     <table>
                         <thead>
                             <tr>
-                                <th>DATA/HORA</th>
-                                <th>TIPO</th>
                                 <th>ATIVO</th>
+                                <th>TIPO</th>
                                 <th>QUANTIDADE</th>
-                                <th>ID CRD</th>
+                                <th>DATA/HORA</th>
                                 <th>STATUS</th>
                                 <th></th>
                             </tr>
@@ -85,11 +56,10 @@ export default function Transaction(props) {
                         <tbody>
                             {transactions?.map((transaction) => (
                                 <tr key={transaction.id}>
-                                    <td>{transaction.transaction_date}</td>
-                                    <td>{transaction.type_transaction}</td>
                                     <td>{transaction.name_active}</td>
-                                    <td>{transaction.amount}</td>
-                                    <td>#{transaction.id}</td>
+                                    <td>{transaction.type_transaction}</td>
+                                    <td>{transaction.qtd_active}</td>
+                                    <td>{transaction.transaction_date}</td>
                                     <td>
                                         <span
                                             className={
