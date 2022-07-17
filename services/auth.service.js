@@ -56,3 +56,32 @@ export async function recoverUserInfo(token) {
         },
     };
 }
+
+/**
+ * --------
+ * New user
+ * --------
+ */
+export async function newUser(data) {
+    const { name, email, password, uf, city } = data;
+
+    const isUserRegistered = await fetch(
+        NEXT_PUBLIC_CRD_PROXY_API_AUTH + '/new',
+        {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+                uf: uf,
+                city: city,
+            }),
+        }
+    ).then((response) => response.json());
+
+    return isUserRegistered;
+}
