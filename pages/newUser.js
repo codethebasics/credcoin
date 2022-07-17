@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import { newUser } from '../services/auth.service';
 import Link from 'next/link';
 
 /**
@@ -17,7 +18,7 @@ export default function NewUser() {
     useEffect(() => {}, []);
 
     const handleNewUser = async (data) => {
-        console.log(data);
+        const response = await newUser(data);
     };
 
     return (
@@ -38,12 +39,41 @@ export default function NewUser() {
                 />
             </div>
             <div className={styles.formControl}>
+                <label htmlFor="inputDocumentType">Tipo de documento</label>
+                <select
+                    id="inputDocumentType"
+                    {...register('document_type_id')}
+                >
+                    <option value="">Selecione</option>
+                    <option value="5">CPF</option>
+                    <option value="4">Passaporte</option>
+                </select>
+            </div>
+            <div className={styles.formControl}>
+                <label htmlFor="inputDocument">Documento</label>
+                <input
+                    placeholder="000.000.000-00"
+                    type="text"
+                    id="inputDocument"
+                    {...register('document_user')}
+                />
+            </div>
+            <div className={styles.formControl}>
                 <label htmlFor="inputUsername">Email</label>
                 <input
                     type="email"
                     id="inputUsername"
                     placeholder="joaodasilva@email.com"
-                    {...register('username')}
+                    {...register('email')}
+                />
+            </div>
+            <div className={styles.formControl}>
+                <label htmlFor="inputWhatsapp">WhatsApp</label>
+                <input
+                    type="text"
+                    id="inputWhatsapp"
+                    placeholder="(00) 00000 0000"
+                    {...register('whatsapp')}
                 />
             </div>
             <div className={styles.formControl}>

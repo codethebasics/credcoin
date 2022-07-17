@@ -34,9 +34,6 @@ export function AuthProvider({ children }) {
      * --------------
      */
     const signIn = async ({ username, password }) => {
-        console.log('signIn');
-        console.log(username, password);
-
         // Recover token and user
         const { token, user } = await signInRequest({
             username,
