@@ -1,7 +1,6 @@
 const FormData = require('form-data');
 
 export default async function addNewTransaction(req, res) {
-    console.log('AddNewUser API Proxy');
     const action = req.body.action;
     const user_id = req.body.user_id;
     const amount = req.body.amount;

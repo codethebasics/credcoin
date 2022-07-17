@@ -11,7 +11,7 @@ import Link from 'next/link';
  * =====
  * @author codethebasics by DuckTech
  */
-export default function Component() {
+export default function RecoverPassword() {
     const { register, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
 
@@ -36,17 +36,12 @@ export default function Component() {
                 <input
                     type="email"
                     id="inputUsername"
-                    placeholder="seu@email.com"
                     {...register('username')}
                 />
             </div>
             <div className={styles.formControl}>
-                <label htmlFor="inputPassword">Senha</label>
-                <input
-                    type="password"
-                    placeholder="•••••••"
-                    {...register('password')}
-                />
+                <label htmlFor="inputPassword">Password</label>
+                <input type="password" {...register('password')} />
             </div>
             <div className={styles.formControl}>
                 <button className={styles.cta}>Entrar</button>

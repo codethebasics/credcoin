@@ -11,23 +11,20 @@
     .formControl { 
         padding: 0 50px;              
         width: 100%;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
 
-        input, button {
-            border-radius: 5px;
-        }
-        
         label {
             display: flex;
         }
     
-        input {
+        input, select {
             width: 100%;
             border: 0;
             padding: 10px;
-            border: 1px solid #262323;
+            border: 1px solid #bbb;
             outline: none;
             background: #f5f5f5;
+            margin-top: 5px;
 
             &:focus {
                 background: #ffffff;
@@ -52,6 +49,8 @@
 
             a {
                 text-decoration: underline;
+                cursor: pointer;
+                color:#262323
             }
         }
     }
