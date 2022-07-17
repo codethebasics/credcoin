@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { newUser } from '../services/auth.service';
 import Link from 'next/link';
+import Router from 'next/router';
 
 /**
  * =====
@@ -19,6 +20,7 @@ export default function NewUser() {
 
     const handleNewUser = async (data) => {
         const response = await newUser(data);
+        Router.push('/login');
     };
 
     return (
