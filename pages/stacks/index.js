@@ -6,6 +6,11 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { BuyContext } from '../../contexts/BuyContext';
 import { postTransaction } from '../../services/transaction.service';
+import {
+    getCRDBalance,
+    getSTKBalance,
+    getBRLBalance,
+} from '../../services/transaction.service';
 
 export default function Stacks(props) {
     const { user } = useContext(AuthContext);
@@ -20,6 +25,10 @@ export default function Stacks(props) {
     const [qrCodeChave, setQrCodeChave] = useState('');
     const [qrCodeStatus, setQrCodeStatus] = useState('');
 
+    const [crdBalance, setCrdBalance] = useState(0);
+    const [stkBalance, setStkBalance] = useState(0);
+    const [brlBalance, setBrlBalance] = useState(0);
+
     useEffect(() => {
         if (!user) {
             Router.push('/login');
@@ -27,6 +36,20 @@ export default function Stacks(props) {
         props.setPaths(['Home', 'Stacks']);
         setBuyValue(parseFloat(buyValue));
         setBuyExtraValue(parseFloat(buyValue) + buyValue * 0.3);
+
+        const fetchData = async () => {
+            const crd = parseFloat(await getCRDBalance(user.id));
+            const stk = parseFloat(await getSTKBalance(user.id));
+            const brl = parseFloat(await getBRLBalance(user.id));
+
+            setCrdBalance(crd);
+            setStkBalance(stk);
+            setBrlBalance(brl);
+        };
+
+        fetchData()
+            .then((response) => console.log('response', response))
+            .catch((error) => console.log(error));
     }, []);
 
     const comprarStacks = async () => {
@@ -123,7 +146,7 @@ export default function Stacks(props) {
                     padding={'15px'}
                     img={'/img/white-wallet.svg'}
                     label={'Saldo em CRD'}
-                    balance={'0000'}
+                    balance={crdBalance}
                     symbol={'CRD'}
                 />
                 <BalanceCard
@@ -132,7 +155,7 @@ export default function Stacks(props) {
                     padding={'15px'}
                     img={'/img/gold-coin.svg'}
                     label={'Saldo em STACKS'}
-                    balance={'0000'}
+                    balance={stkBalance}
                     symbol={'STK'}
                 />
                 <BalanceCard
@@ -141,7 +164,8 @@ export default function Stacks(props) {
                     padding={'15px'}
                     img={'/img/gold-dolar.svg'}
                     label={'Saldo em REAIS'}
-                    balance={'R$ 0000'}
+                    balance={brlBalance.toFixed(2)}
+                    symbol={'R$'}
                 />
             </div>
             <div className={styles.formContainer}>

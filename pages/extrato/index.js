@@ -2,18 +2,41 @@ import Router from 'next/router';
 import Card from '../../components/cards/Card';
 import Transaction from '../../components/layout/Home/Transactions';
 import styles from '../../styles/pages/Extrato.module.scss';
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { BalanceCard } from '../../components/cards';
 import { AuthContext } from '../../contexts/AuthContext';
+import {
+    getCRDBalance,
+    getSTKBalance,
+    getBRLBalance,
+} from '../../services/transaction.service';
 
 export default function Extrato(props) {
     const { user } = useContext(AuthContext);
+
+    const [crdBalance, setCrdBalance] = useState(0);
+    const [stkBalance, setStkBalance] = useState(0);
+    const [brlBalance, setBrlBalance] = useState(0);
 
     useEffect(() => {
         if (!user) {
             Router.push('/login');
         }
         props.setPaths(['Home', 'Extrato']);
+
+        const fetchData = async () => {
+            const crd = parseFloat(await getCRDBalance(user.id));
+            const stk = parseFloat(await getSTKBalance(user.id));
+            const brl = parseFloat(await getBRLBalance(user.id));
+
+            setCrdBalance(crd);
+            setStkBalance(stk);
+            setBrlBalance(brl);
+        };
+
+        fetchData()
+            .then((response) => console.log('response', response))
+            .catch((error) => console.log(error));
     }, []);
 
     return (
@@ -28,7 +51,7 @@ export default function Extrato(props) {
                     padding={'15px'}
                     img={'/img/white-wallet.svg'}
                     label={'Saldo em CRD'}
-                    balance={'0000'}
+                    balance={crdBalance}
                     symbol={'CRD'}
                 />
                 <BalanceCard
@@ -37,7 +60,7 @@ export default function Extrato(props) {
                     padding={'15px'}
                     img={'/img/gold-coin.svg'}
                     label={'Saldo em STACKS'}
-                    balance={'0000'}
+                    balance={stkBalance}
                     symbol={'STK'}
                 />
                 <BalanceCard
@@ -46,7 +69,8 @@ export default function Extrato(props) {
                     padding={'15px'}
                     img={'/img/gold-dolar.svg'}
                     label={'Saldo em REAIS'}
-                    balance={'R$ 0000'}
+                    balance={brlBalance.toFixed(2)}
+                    symbol={'R$'}
                 />
             </div>
             <div className={styles.historyContainer}>
