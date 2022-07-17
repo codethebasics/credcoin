@@ -138,7 +138,7 @@ async function verifyPaymentPix(txid_id) {
         body: JSON.stringify({ txid_id: txid_id }),
     }).then((response) => response.json());
 
-    return pixPayment.response.status.data;
+    return pixPayment.response.status;
 }
 
 export {

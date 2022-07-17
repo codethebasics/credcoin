@@ -18,9 +18,6 @@ export default async function verifyPaymentPix(req, res) {
                 body: form,
             }).then((response) => response.json());
 
-            console.log('pixStatus', pixStatus.data);
-            console.log('==>', txid_id);
-
             res.status(200).json({
                 response: {
                     status: pixStatus.data,

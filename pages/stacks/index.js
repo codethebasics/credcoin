@@ -73,11 +73,9 @@ export default function Stacks(props) {
         setTxid(qrCodeData.response.api.data.txid);
 
         const intervalId = setInterval(async () => {
-            let status = await verifyPaymentPix(
-                qrCodeData.response.api.data.txid
-            );
-            console.log(status);
-            if (status === 'CONCLUIDA') {
+            let pix = await verifyPaymentPix(qrCodeData.response.api.data.txid);
+            console.log(pix);
+            if (pix === 'CONCLUIDA') {
                 clearInterval(intervalId);
             }
         }, 5000);
