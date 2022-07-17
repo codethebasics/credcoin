@@ -41,12 +41,12 @@ export default function Sidebar(props) {
                                 <a>Extrato</a>
                             </li>
                         </Link>
-                        <Link href="/stacks">
+                        {/* <Link href="/stacks">
                             <li>
                                 <img src="/img/gold-coin.svg" height={20} />
                                 <a>Stacks</a>
                             </li>
-                        </Link>
+                        </Link> */}
                         <Link href="/logout">
                             <li>
                                 <img src="/img/signout-gold.svg" height={20} />

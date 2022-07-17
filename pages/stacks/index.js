@@ -77,6 +77,7 @@ export default function Stacks(props) {
             console.log(pix);
             if (pix === 'CONCLUIDA') {
                 clearInterval(intervalId);
+                Router.push('/extrato');
             }
         }, 5000);
     };
