@@ -25,6 +25,9 @@ export default function NewUser() {
             className={styles.loginContainer}
             onSubmit={handleSubmit(handleNewUser)}
         >
+            <div className={styles.formControl} style={{ textAlign: 'center' }}>
+                <img src="/img/logo-gold.svg" height={50} />
+            </div>
             <div className={styles.formControl}>
                 <label htmlFor="inputName">Nome</label>
                 <input

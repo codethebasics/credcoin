@@ -31,12 +31,16 @@ export default function Component() {
             className={styles.loginContainer}
             onSubmit={handleSubmit(handleSignIn)}
         >
+            <div className={styles.formControl} style={{ textAlign: 'center' }}>
+                <img src="/img/logo-gold.svg" height={50} />
+            </div>
             <div className={styles.formControl}>
                 <label htmlFor="inputUsername">Email</label>
                 <input
                     type="email"
                     id="inputUsername"
                     placeholder="seu@email.com"
+                    autoComplete="on"
                     {...register('username')}
                 />
             </div>
@@ -45,6 +49,7 @@ export default function Component() {
                 <input
                     type="password"
                     placeholder="•••••••"
+                    autoComplete="on"
                     {...register('password')}
                 />
             </div>

@@ -17,43 +17,38 @@ export default function RecoverPassword() {
 
     useEffect(() => {}, []);
 
-    const handleSignIn = async (data) => {
-        const username = data.username.toString().toLowerCase().trim();
-        const password = data.password.toString().trim();
-        await signIn({
-            username: username,
-            password: password,
-        });
+    const handleRecoverPassword = async (data) => {
+        console.log(data);
     };
 
     return (
         <form
             className={styles.loginContainer}
-            onSubmit={handleSubmit(handleSignIn)}
+            onSubmit={handleSubmit(handleRecoverPassword)}
         >
+            <div className={styles.formControl} style={{ textAlign: 'center' }}>
+                <img src="/img/logo-gold.svg" height={50} />
+            </div>
             <div className={styles.formControl}>
                 <label htmlFor="inputUsername">Email</label>
                 <input
                     type="email"
                     id="inputUsername"
+                    placeholder="seu@email.com"
                     {...register('username')}
                 />
             </div>
             <div className={styles.formControl}>
-                <label htmlFor="inputPassword">Password</label>
-                <input type="password" {...register('password')} />
-            </div>
-            <div className={styles.formControl}>
-                <button className={styles.cta}>Entrar</button>
+                <button className={styles.cta}>Recuperar Senha</button>
                 <div className={styles.subform}>
                     <div>
-                        <Link href="/newUser">
-                            <a>Cadastre-se</a>
+                        <Link href="/login">
+                            <a>Entrar</a>
                         </Link>
                     </div>
                     <div>
-                        <Link href="/recoverPassword">
-                            <a>Esqueceu a senha?</a>
+                        <Link href="/newUser">
+                            <a>Cadastre-se</a>
                         </Link>
                     </div>
                 </div>
