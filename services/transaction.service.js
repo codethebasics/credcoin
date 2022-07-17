@@ -6,14 +6,7 @@
  */
 const TRANSACTION_URI = process.env.NEXT_PUBLIC_CRD_PROXY_API_TRANSACTION;
 
-/**
- * ---
- * GET
- * ---
- */
 async function getTransaction(userId) {
-    console.log('Transaction Service => GET');
-
     const transactionList = await fetch(TRANSACTION_URI, {
         method: 'POST',
         headers: {
@@ -29,16 +22,71 @@ async function getTransaction(userId) {
     return transactionList.response;
 }
 
-/**
- * ----
- * POST
- * ----
- */
+async function getCRDBalance(userId) {
+    const activeId = 1;
+    const typeTransactionId = 6;
+    const statusTransactionTypeId = 3;
+    const crdBalance = await fetch(TRANSACTION_URI + '/balance', {
+        method: 'POST',
+        body: JSON.stringify({
+            user_id: parseInt(userId),
+            active_id: activeId,
+            type_transaction_id: typeTransactionId,
+            status_transaction_type_id: statusTransactionTypeId,
+        }),
+        headers: {
+            Accepts: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    }).then((response) => response.json());
+
+    return crdBalance.response.api.data[0].total || 0;
+}
+
+async function getSTKBalance(userId) {
+    const activeId = 2;
+    const typeTransactionId = 6;
+    const statusTransactionTypeId = 3;
+    const stkBalance = await fetch(TRANSACTION_URI + '/balance', {
+        method: 'POST',
+        body: JSON.stringify({
+            user_id: parseInt(userId),
+            active_id: activeId,
+            type_transaction_id: typeTransactionId,
+            status_transaction_type_id: statusTransactionTypeId,
+        }),
+        headers: {
+            Accepts: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    }).then((response) => response.json());
+
+    return stkBalance.response.api.data[0].total || 0;
+}
+
+async function getBRLBalance(userId) {
+    const activeId = 3;
+    const typeTransactionId = 6;
+    const statusTransactionTypeId = 3;
+    const brlBalance = await fetch(TRANSACTION_URI + '/balance', {
+        method: 'POST',
+        body: JSON.stringify({
+            user_id: parseInt(userId),
+            active_id: activeId,
+            type_transaction_id: typeTransactionId,
+            status_transaction_type_id: statusTransactionTypeId,
+        }),
+        headers: {
+            Accepts: 'application/json',
+            'Content-Type': 'application/json',
+        },
+    }).then((response) => response.json());
+
+    return brlBalance.response.api.data[0].total || 0;
+}
+
 async function postTransaction(transaction) {
     transaction.action = 'addNewTransaction';
-    console.log('---------------------');
-    console.log(transaction);
-    console.log('---------------------');
     const savedTransaction = await fetch(TRANSACTION_URI + '/new', {
         method: 'POST',
         body: JSON.stringify(transaction),
@@ -51,14 +99,7 @@ async function postTransaction(transaction) {
     return savedTransaction;
 }
 
-/**
- * ---
- * PUT
- * ---
- */
 async function putTransaction() {
-    console.log('Transaction Service => PUT');
-
     const updatedTransaction = await fetch(TRANSACTION_URI, {
         method: 'PUT',
         headers: {
@@ -70,14 +111,7 @@ async function putTransaction() {
     return updatedTransaction.response;
 }
 
-/**
- * ------
- * DELETE
- * ------
- */
 async function deleteTransaction() {
-    console.log('Transaction Service => DELETE');
-
     const deletedTransaction = await fetch(TRANSACTION_URI, {
         method: 'DELETE',
         headers: {
@@ -89,4 +123,12 @@ async function deleteTransaction() {
     return deletedTransaction.response;
 }
 
-export { getTransaction, postTransaction, putTransaction, deleteTransaction };
+export {
+    getTransaction,
+    postTransaction,
+    putTransaction,
+    deleteTransaction,
+    getCRDBalance,
+    getSTKBalance,
+    getBRLBalance,
+};
