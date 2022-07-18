@@ -76,7 +76,7 @@ export default function Home(props) {
             </div>
             <div className={styles.formContainer}>
                 <div className={styles.leftContainer}>
-                    <Transactions />
+                    <Transactions userId={user?.id} />
                 </div>
                 <div className={styles.right}>
                     <BuyStacks />

@@ -11,7 +11,7 @@ import {
 
 export default function Transaction(props) {
     useEffect(() => {
-        getTransaction(1)
+        getTransaction(props.userId)
             .then((response) => setTransactions(response.transactionList))
             .catch((error) => console.log(error));
     }, []);
@@ -58,7 +58,7 @@ export default function Transaction(props) {
                                 <tr key={transaction.id}>
                                     <td>{transaction.name_active}</td>
                                     <td>{transaction.type_transaction}</td>
-                                    <td>{transaction.qtd_active}</td>
+                                    <td>{transaction.amount}</td>
                                     <td>{transaction.transaction_date}</td>
                                     <td>
                                         <span
