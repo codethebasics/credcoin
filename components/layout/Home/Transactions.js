@@ -58,7 +58,7 @@ export default function Transaction(props) {
                                 <tr key={transaction.id}>
                                     <td>{transaction.name_active}</td>
                                     <td>{transaction.type_transaction}</td>
-                                    <td>{transaction.amount}</td>
+                                    <td>{transaction.qtd_active}</td>
                                     <td>{transaction.transaction_date}</td>
                                     <td>
                                         <span
