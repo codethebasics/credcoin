@@ -140,7 +140,7 @@ export default function Extrato(props) {
                                 </div>
                             </div>
                             <div className={styles.table}>
-                                <Transaction />
+                                <Transaction userId={user?.id} />
                             </div>
                         </div>
                     </div>
