@@ -26,7 +26,7 @@ export default function Sidebar(props) {
                     <ul>
                         <Link href="/home">
                             <li>
-                                <img src="/img/home-gold.svg" height={20} />
+                                <img src="/img/logo_CRD.png" height={20} />
                                 <a>Home</a>
                             </li>
                         </Link>
@@ -81,7 +81,7 @@ export default function Sidebar(props) {
             <div>
                 <div className={styles.brand}>
                     <div className={styles.logo}>
-                        <img src="/img/logo-gold.svg" />
+                        <img src="/img/logo_CRD.png" height={25} />
                     </div>
                     <div
                         className={styles.menu}

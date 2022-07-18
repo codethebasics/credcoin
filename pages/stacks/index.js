@@ -104,7 +104,7 @@ export default function Stacks(props) {
                         <div className={styles.body}>
                             <div>
                                 <div className={styles.logo}>
-                                    <img src="/img/logo-gold.svg" />
+                                    <img src="/img/logo_CRD.png" height={25} />
                                 </div>
                                 <div className={styles.headerLabel}>
                                     <span>

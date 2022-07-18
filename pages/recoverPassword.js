@@ -27,7 +27,7 @@ export default function RecoverPassword() {
             onSubmit={handleSubmit(handleRecoverPassword)}
         >
             <div className={styles.formControl} style={{ textAlign: 'center' }}>
-                <img src="/img/logo-gold.svg" height={50} />
+                <img src="/img/logo_CRD.png" height={50} />
             </div>
             <div className={styles.formControl}>
                 <label htmlFor="inputUsername">Email</label>
