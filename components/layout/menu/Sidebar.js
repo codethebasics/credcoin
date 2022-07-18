@@ -26,7 +26,7 @@ export default function Sidebar(props) {
                     <ul>
                         <Link href="/home">
                             <li>
-                                <img src="/img/logo_CRD.png" height={20} />
+                                <img src="/img/home-gold.svg" height={20} />
                                 <a>Home</a>
                             </li>
                         </Link>
