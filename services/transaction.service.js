@@ -141,6 +141,28 @@ async function verifyPaymentPix(txid_id) {
     return pixPayment.response.status;
 }
 
+/**
+ * -----------------------
+ * Get transaction details
+ * -----------------------
+ */
+async function getTransactionDetails(txid) {
+    if (!txid) {
+        return {
+            message: 'O identificador da transacao [txid] deve ser informado.',
+        };
+    }
+    const transaction = await fetch(TRANSACTION_URI + '/details/' + txid, {
+        method: 'POST',
+        headers: {
+            Accepts: 'application/json',
+            'Content-Type': 'application.json',
+        },
+    }).then((response) => response.json());
+
+    return transaction;
+}
+
 export {
     getTransaction,
     postTransaction,
@@ -150,4 +172,5 @@ export {
     getSTKBalance,
     getBRLBalance,
     verifyPaymentPix,
+    getTransactionDetails,
 };
