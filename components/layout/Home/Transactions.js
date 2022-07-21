@@ -7,6 +7,7 @@ import {
     postTransaction,
     putgetTransaction,
     deleteTransaction,
+    getTransactionDetails,
 } from '../../../services/transaction.service';
 
 export default function Transaction(props) {
@@ -22,7 +23,9 @@ export default function Transaction(props) {
         Router.push('/extrato');
     };
 
-    const viewTransaction = async () => {
+    const viewTransaction = async (transaction) => {
+        const txDetails = await getTransactionDetails(transaction?.txid_pix);
+        console.log('txDetail', txDetails);
         alert('View transaction');
     };
 
@@ -72,7 +75,9 @@ export default function Transaction(props) {
                                     <td>
                                         <img
                                             className={styles.transactionInfo}
-                                            onClick={viewTransaction}
+                                            onClick={() =>
+                                                viewTransaction(transaction)
+                                            }
                                             height={20}
                                             src="/img/search-gray.svg"
                                         />
