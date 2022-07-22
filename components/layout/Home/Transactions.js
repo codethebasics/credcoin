@@ -27,6 +27,7 @@ export default function Transaction(props) {
     const viewTransaction = async (transaction) => {
         const txDetails = await getTransactionDetails(transaction?.txid_pix);
         setCurrentTransaction(txDetails);
+        Router.push('/extrato');
     };
 
     const transactionClass = () => {
