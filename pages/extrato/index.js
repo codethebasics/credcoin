@@ -9,14 +9,20 @@ import {
     getCRDBalance,
     getSTKBalance,
     getBRLBalance,
+    getTransactionDetails,
 } from '../../services/transaction.service';
+import TransactionDetail from '../../components/layout/transaction/TransactionDetail';
+import { TransactionContext } from '../../contexts/TransactionContext';
 
 export default function Extrato(props) {
     const { user } = useContext(AuthContext);
+    const { currentTransaction, setCurrentTransaction } =
+        useContext(TransactionContext);
 
     const [crdBalance, setCrdBalance] = useState(0);
     const [stkBalance, setStkBalance] = useState(0);
     const [brlBalance, setBrlBalance] = useState(0);
+    const [transaction, setTransaction] = useState();
 
     useEffect(() => {
         if (!user) {
@@ -28,6 +34,12 @@ export default function Extrato(props) {
             const crd = parseFloat(await getCRDBalance(user.id));
             const stk = parseFloat(await getSTKBalance(user.id));
             const brl = parseFloat(await getBRLBalance(user.id));
+            console.log(currentTransaction);
+            const transactionResponse = await getTransactionDetails(
+                currentTransaction.transaction.txid_pix
+            );
+
+            setCurrentTransaction(transactionResponse);
 
             setCrdBalance(crd);
             setStkBalance(stk);
@@ -181,41 +193,30 @@ export default function Extrato(props) {
                             </div>
                         </div>
                         <div className={styles.body}>
-                            <div>
-                                <span className={styles.label}>
-                                    Detalhes da operação
-                                </span>
-                            </div>
-                            <div>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>STATUS:</td>
-                                            <td>CONCLUÍDA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>HORA:</td>
-                                            <td>16H32</td>
-                                        </tr>
-                                        <tr>
-                                            <td>DATA:</td>
-                                            <td>20/06/2022</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ATIVO:</td>
-                                            <td>STACK-STK</td>
-                                        </tr>
-                                        <tr>
-                                            <td>QUANTIDADE:</td>
-                                            <td>400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ID.SMART:</td>
-                                            <td>013213</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <TransactionDetail
+                                status={
+                                    currentTransaction?.transaction
+                                        ?.status_transaction
+                                }
+                                date={
+                                    currentTransaction?.transaction
+                                        ?.transaction_date
+                                }
+                                asset={
+                                    currentTransaction?.transaction?.name_active
+                                }
+                                quantity={
+                                    currentTransaction?.transaction?.qtd_active
+                                }
+                                amount={currentTransaction?.transaction?.amount}
+                                hash={
+                                    currentTransaction?.transaction
+                                        ?.internal_hash
+                                }
+                                qrCode={
+                                    currentTransaction?.transaction?.qr_code
+                                }
+                            />
                         </div>
                     </div>
                 </Card>

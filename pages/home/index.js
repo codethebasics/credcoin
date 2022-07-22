@@ -11,10 +11,12 @@ import {
 import Router from 'next/router';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import { TransactionContext } from '../../contexts/TransactionContext';
 import { BalanceCard } from '../../components/cards';
 
 export default function Home(props) {
     const { user } = useContext(AuthContext);
+    const { transaction } = useContext(TransactionContext);
 
     const [crdBalance, setCrdBalance] = useState(0);
     const [stkBalance, setStkBalance] = useState(0);
