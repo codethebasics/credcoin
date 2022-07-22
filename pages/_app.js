@@ -6,6 +6,10 @@ import SidebarBottom from '../components/layout/menu/SidebarBottom';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from '../contexts/AuthContext';
 import { BuyProvider } from '../contexts/BuyContext';
+import {
+    TransactionContext,
+    TransactionProvider,
+} from '../contexts/TransactionContext';
 
 /**
  * ===============
@@ -76,9 +80,11 @@ function App({ Component, pageProps: { session, ...pageProps } }) {
                     <Header paths={paths} />
                 </div>
                 <div id="bodyContainer">
-                    <BuyProvider>
-                        <Component setPaths={setPaths} {...pageProps} />
-                    </BuyProvider>
+                    <TransactionProvider>
+                        <BuyProvider>
+                            <Component setPaths={setPaths} {...pageProps} />
+                        </BuyProvider>
+                    </TransactionProvider>
                 </div>
             </div>
         </AuthProvider>
