@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '/styles/layout/home/Transactions.module.scss';
 import Card from '../../cards/Card';
 import Router from 'next/router';
 import {
     getTransaction,
-    postTransaction,
-    putgetTransaction,
-    deleteTransaction,
     getTransactionDetails,
 } from '../../../services/transaction.service';
+import { TransactionContext } from '../../../contexts/TransactionContext';
 
 export default function Transaction(props) {
+    const { currentTransaction, setCurrentTransaction } =
+        useContext(TransactionContext);
+
     useEffect(() => {
         getTransaction(props.userId)
             .then((response) => setTransactions(response.transactionList))
@@ -25,8 +26,8 @@ export default function Transaction(props) {
 
     const viewTransaction = async (transaction) => {
         const txDetails = await getTransactionDetails(transaction?.txid_pix);
-        console.log('txDetail', txDetails);
-        alert('View transaction');
+        setCurrentTransaction(txDetails);
+        Router.push('/extrato');
     };
 
     const transactionClass = () => {
